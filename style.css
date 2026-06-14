@@ -340,7 +340,40 @@ color: #00c2d1;
 }
 
 
- ==========================================
+.orbs span {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.6;
+  animation: floatOrb 20s infinite alternate;
+}
+
+.orbs span:nth-child(1) {
+  background: #38bdf8;
+  top: 10%;
+  left: 10%;
+}
+
+.orbs span:nth-child(2) {
+  background: #2563eb;
+  bottom: 15%;
+  right: 15%;
+  animation-duration: 26s;
+}
+
+.orbs span:nth-child(3) {
+  background: #0ea5e9;
+  top: 50%;
+  left: 60%;
+  animation-duration: 32s;
+}
+
+@keyframes floatOrb {
+  from { transform: translateY(0) translateX(0); }
+  to { transform: translateY(-80px) translateX(60px); }
+} ==========================================
    SECTIONS
    ========================================== */
 .section-header {
