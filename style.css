@@ -333,10 +333,13 @@ img {
   100% { background-position: 100% 100%; }
 }
 
-.hero-content {
-position: relative;
-z-index: 2;
-color: #00c2d1;
+.hero-content h1 {
+  animation: textPulse 6s ease-in-out infinite;
+}
+
+@keyframes textPulse {
+  0%,100% { letter-spacing: 0px; }
+  50% { letter-spacing: 1.5px; }
 }
 
 
