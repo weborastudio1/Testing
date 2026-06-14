@@ -446,18 +446,18 @@ color: #00c2d1;
 }
 
 .service-card {
-    background: var(--white);
-    padding: 30px 20px;
-    border-radius: var(--border-radius);
-    text-align: center;
-    border: 1px solid #e0e0e0;
-    transition: var(--transition);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.25),
+    inset 0 1px 1px rgba(255,255,255,0.15);
+
+  transform-style: preserve-3d;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--primary-color);
+  transform: rotateX(6deg) rotateY(-6deg) scale(1.05);
 }
 
 .service-icon {
