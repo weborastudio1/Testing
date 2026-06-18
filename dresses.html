@@ -1,0 +1,270 @@
+<!-- dresses.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dreamy Scrunch — Dresses</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-header {
+            padding: 40px 0 20px;
+            background: linear-gradient(135deg, var(--lavender), var(--sky));
+            text-align: center;
+        }
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+        }
+        .page-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .product-grid {
+            padding: 60px 0;
+        }
+        .size-guide {
+            background: var(--cream);
+            padding: 30px;
+            border-radius: var(--radius);
+            margin: 30px 0;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .size-guide h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
+        .size-guide .size-chart {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+        .size-guide .size-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .size-guide .size-item .label {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--deep-rose);
+        }
+        .size-guide .size-item .detail {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header id="header">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">Dreamy <span>Scrunch</span></a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="scrunchies.html">Scrunchies</a></li>
+                <li><a href="dresses.html" class="active">Dresses</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="contact.html">Get in Touch</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="https://wa.me/919999999999?text=Hi%20Dreamy%20Scrunch!%20I%27d%20like%20to%20place%20an%20order%20%F0%9F%92%95" target="_blank" class="btn-whatsapp">
+                    Order on WhatsApp
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== PAGE HEADER ========== -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Baby Girl Dresses</h1>
+            <p>Dreamy, comfortable, and handcrafted with love for your little princess.</p>
+        </div>
+    </section>
+
+    <!-- ========== SIZE GUIDE ========== -->
+    <section class="container">
+        <div class="size-guide">
+            <h3>✨ Size Guide</h3>
+            <p>Find the perfect fit for your little one</p>
+            <div class="size-chart">
+                <div class="size-item">
+                    <span class="label">0-3M</span>
+                    <span class="detail">Newborn</span>
+                </div>
+                <div class="size-item">
+                    <span class="label">3-6M</span>
+                    <span class="detail">Infant</span>
+                </div>
+                <div class="size-item">
+                    <span class="label">6-12M</span>
+                    <span class="detail">Baby</span>
+                </div>
+                <div class="size-item">
+                    <span class="label">12-18M</span>
+                    <span class="detail">Toddler</span>
+                </div>
+                <div class="size-item">
+                    <span class="label">18-24M</span>
+                    <span class="detail">Toddler</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PRODUCT GRID ========== -->
+    <section class="product-grid">
+        <div class="container">
+            <div class="product-grid-wrapper" id="productGrid">
+                <!-- Dress 1 -->
+                <div class="product-card">
+                    <div class="image-placeholder">👗</div>
+                    <h3>Cloud Lace Baby Dress</h3>
+                    <div class="subtitle">Dreamy Clouds Collection</div>
+                    <div class="rating">⭐ 4.8 / 5</div>
+                    <div class="price">₹ 1,299</div>
+                    <a href="https://wa.me/919999999999?text=Hi!%20I%27d%20like%20to%20order%20the%20Cloud%20Lace%20Baby%20Dress%20%F0%9F%92%95" target="_blank" class="btn-whatsapp">
+                        Buy on WhatsApp
+                    </a>
+                </div>
+
+                <!-- Dress 2 -->
+                <div class="product-card">
+                    <div class="image-placeholder">🌸</div>
+                    <h3>Floral Dream Dress</h3>
+                    <div class="subtitle">Hand-painted floral print</div>
+                    <div class="rating">⭐ 4.9 / 5</div>
+                    <div class="price">₹ 1,499</div>
+                    <a href="https://wa.me/919999999999?text=Hi!%20I%27d%20like%20to%20order%20the%20Floral%20Dream%20Dress%20%F0%9F%92%95" target="_blank" class="btn-whatsapp">
+                        Buy on WhatsApp
+                    </a>
+                </div>
+
+                <!-- Dress 3 -->
+                <div class="product-card">
+                    <div class="image-placeholder">🦋</div>
+                    <h3>Butterfly Garden Dress</h3>
+                    <div class="subtitle">Lightweight cotton</div>
+                    <div class="rating">⭐ 4.7 / 5</div>
+                    <div class="price">₹ 1,199</div>
+                    <a href="https://wa.me/919999999999?text=Hi!%20I%27d%20like%20to%20order%20the%20Butterfly%20Garden%20Dress%20%F0%9F%92%95" target="_blank" class="btn-whatsapp">
+                        Buy on WhatsApp
+                    </a>
+                </div>
+
+                <!-- Dress 4 -->
+                <div class="product-card">
+                    <div class="image-placeholder">🌟</div>
+                    <h3>Starlight Party Dress</h3>
+                    <div class="subtitle">Perfect for special occasions</div>
+                    <div class="rating">⭐ 4.9 / 5</div>
+                    <div class="price">₹ 1,799</div>
+                    <a href="https://wa.me/919999999999?text=Hi!%20I%27d%20like%20to%20order%20the%20Starlight%20Party%20Dress%20%F0%9F%92%95" target="_blank" class="btn-whatsapp">
+                        Buy on WhatsApp
+                    </a>
+                </div>
+
+                <!-- Dress 5 -->
+                <div class="product-card">
+                    <div class="image-placeholder">🌺</div>
+                    <h3>Tropical Paradise Dress</h3>
+                    <div class="subtitle">Summer collection</div>
+                    <div class="rating">⭐ 4.6 / 5</div>
+                    <div class="price">₹ 1,099</div>
+                    <a href="https://wa.me/919999999999?text=Hi!%20I%27d%20like%20to%20order%20the%20Tropical%20Paradise%20Dress%20%F0%9F%92%95" target="_blank" class="btn-whatsapp">
+                        Buy on WhatsApp
+                    </a>
+                </div>
+
+                <!-- Dress 6 -->
+                <div class="product-card">
+                    <div class="image-placeholder">🎀</div>
+                    <h3>Vintage Lace Dress</h3>
+                    <div class="subtitle">Heirloom quality</div>
+                    <div class="rating">⭐ 4.8 / 5</div>
+                    <div class="price">₹ 1,599</div>
+                    <a href="https://wa.me/919999999999?text=Hi!%20I%27d%20like%20to%20order%20the%20Vintage%20Lace%20Dress%20%F0%9F%92%95" target="_blank" class="btn-whatsapp">
+                        Buy on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">Dreamy <span>Scrunch</span></a>
+                    <p>
+                        Handmade scrunchies and baby girl dresses with love,
+                        quality, and a touch of dream.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/dreamyscrunch" target="_blank" aria-label="Instagram">📸</a>
+                        <a href="mailto:dreamyscrunch@gmail.com" aria-label="Email">✉️</a>
+                        <a href="https://wa.me/919999999999" target="_blank" aria-label="WhatsApp">💬</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="scrunchies.html">Scrunchies</a></li>
+                        <li><a href="dresses.html">Dresses</a></li>
+                        <li><a href="our-story.html">Our Story</a></li>
+                        <li><a href="contact.html">Get in Touch</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="https://wa.me/919999999999" target="_blank">Order on WhatsApp</a></li>
+                        <li><a href="mailto:dreamyscrunch@gmail.com">Email Us</a></li>
+                        <li><a href="contact.html">Contact Form</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Connect</h5>
+                    <ul>
+                        <li><a href="https://instagram.com/dreamyscrunch" target="_blank">@dreamyscrunch</a></li>
+                        <li><a href="mailto:dreamyscrunch@gmail.com">dreamyscrunch@gmail.com</a></li>
+                        <li><a href="https://wa.me/919999999999" target="_blank">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 Dreamy Scrunch. All rights reserved.</span>
+                <span>Made with <span class="heart">❤</span> in India</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

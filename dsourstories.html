@@ -1,0 +1,350 @@
+<!-- our-story.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dreamy Scrunch — Our Story</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-header {
+            padding: 40px 0 20px;
+            background: linear-gradient(135deg, var(--blush), var(--cream));
+            text-align: center;
+        }
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+        }
+        .page-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .story-section {
+            padding: 60px 0;
+            background: var(--white);
+        }
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .story-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .story-content p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .story-content .highlight-box {
+            background: var(--cream);
+            padding: 30px;
+            border-radius: var(--radius);
+            margin: 30px 0;
+            border-left: 4px solid var(--deep-rose);
+        }
+        .story-content .highlight-box h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--deep-rose);
+            margin-bottom: 8px;
+        }
+        .values-section {
+            padding: 60px 0;
+            background: linear-gradient(165deg, var(--cream), var(--lavender));
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .value-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        .value-card .icon {
+            font-size: 2.8rem;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .value-card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--charcoal);
+        }
+        .value-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .founder-section {
+            padding: 60px 0;
+            background: var(--white);
+        }
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .founder-image {
+            background: linear-gradient(135deg, var(--blush), var(--lavender));
+            border-radius: var(--radius);
+            aspect-ratio: 1/1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            box-shadow: var(--shadow);
+        }
+        .founder-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+        }
+        .founder-content .role {
+            color: var(--deep-rose);
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .founder-content p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        @media (max-width: 768px) {
+            .founder-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .founder-image {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header id="header">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">Dreamy <span>Scrunch</span></a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="scrunchies.html">Scrunchies</a></li>
+                <li><a href="dresses.html">Dresses</a></li>
+                <li><a href="our-story.html" class="active">Our Story</a></li>
+                <li><a href="contact.html">Get in Touch</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="https://wa.me/919999999999?text=Hi%20Dreamy%20Scrunch!%20I%27d%20like%20to%20place%20an%20order%20%F0%9F%92%95" target="_blank" class="btn-whatsapp">
+                    Order on WhatsApp
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== PAGE HEADER ========== -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Story</h1>
+            <p>Handmade with love, driven by dreams.</p>
+        </div>
+    </section>
+
+    <!-- ========== STORY CONTENT ========== -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-content">
+                <h2>✨ The Dream Behind Dreamy Scrunch</h2>
+                <p>
+                    Dreamy Scrunch was born from a simple but profound desire — to create 
+                    beautiful, high-quality accessories that feel like a warm embrace. 
+                    What started as a small passion project in a home studio has blossomed 
+                    into a beloved brand trusted by families across India.
+                </p>
+
+                <div class="highlight-box">
+                    <h3>💖 Our Mission</h3>
+                    <p>
+                        To craft handmade, baby-safe products that bring joy, comfort, and 
+                        a touch of dreamy elegance to everyday life. We believe that every 
+                        little one deserves to feel beautiful and comfortable, and every 
+                        parent deserves peace of mind knowing their child is wrapped in 
+                        love and quality.
+                    </p>
+                </div>
+
+                <p>
+                    From our very first scrunchie to our latest baby dress collection, 
+                    every piece is handcrafted with meticulous attention to detail. 
+                    We use only the finest materials — premium mulberry silk and 
+                    baby-safe organic cotton — to ensure our products are as gentle on 
+                    the skin as they are on the eyes.
+                </p>
+
+                <p>
+                    But Dreamy Scrunch is more than just a brand. It's a community of 
+                    dreamers, makers, and families who believe in the beauty of handmade, 
+                    the power of small businesses, and the magic of childhood.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== VALUES ========== -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Values</h2>
+                <p>What we stand for, what we believe in.</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <span class="icon">🧵</span>
+                    <h4>100% Handmade</h4>
+                    <p>Every stitch is made with love and care by skilled artisans.</p>
+                </div>
+                <div class="value-card">
+                    <span class="icon">🌱</span>
+                    <h4>Baby-Friendly</h4>
+                    <p>Premium silk and organic cotton — safe for the most delicate skin.</p>
+                </div>
+                <div class="value-card">
+                    <span class="icon">💎</span>
+                    <h4>Affordable Luxury</h4>
+                    <p>Luxury quality at prices that feel just right for every family.</p>
+                </div>
+                <div class="value-card">
+                    <span class="icon">❤️</span>
+                    <h4>Made with Care</h4>
+                    <p>Each product carries a piece of our heart for you and your little one.</p>
+                </div>
+                <div class="value-card">
+                    <span class="icon">♻️</span>
+                    <h4>Sustainable Practices</h4>
+                    <p>Minimal waste, eco-friendly materials, and mindful production.</p>
+                </div>
+                <div class="value-card">
+                    <span class="icon">🤝</span>
+                    <h4>Community First</h4>
+                    <p>Supporting local artisans and building a family of dreamers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOUNDER SECTION ========== -->
+    <section class="founder-section">
+        <div class="container">
+            <div class="founder-grid">
+                <div class="founder-image">
+                    👩‍🎨
+                </div>
+                <div class="founder-content">
+                    <h3>Meet the Founder</h3>
+                    <span class="role">✨ Dreamer &amp; Maker</span>
+                    <p>
+                        "Dreamy Scrunch is my heart poured into fabric and thread. 
+                        As a mother myself, I know how important it is to find 
+                        products that are safe, beautiful, and made with love. 
+                        Every scrunchie, every dress, every stitch is a little 
+                        piece of my dream for a kinder, softer world."
+                    </p>
+                    <p style="margin-top:12px; font-style:italic; color:var(--deep-rose);">
+                        — Ananya, Founder of Dreamy Scrunch
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">Dreamy <span>Scrunch</span></a>
+                    <p>
+                        Handmade scrunchies and baby girl dresses with love,
+                        quality, and a touch of dream.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/dreamyscrunch" target="_blank" aria-label="Instagram">📸</a>
+                        <a href="mailto:dreamyscrunch@gmail.com" aria-label="Email">✉️</a>
+                        <a href="https://wa.me/919999999999" target="_blank" aria-label="WhatsApp">💬</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="scrunchies.html">Scrunchies</a></li>
+                        <li><a href="dresses.html">Dresses</a></li>
+                        <li><a href="our-story.html">Our Story</a></li>
+                        <li><a href="contact.html">Get in Touch</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="https://wa.me/919999999999" target="_blank">Order on WhatsApp</a></li>
+                        <li><a href="mailto:dreamyscrunch@gmail.com">Email Us</a></li>
+                        <li><a href="contact.html">Contact Form</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Connect</h5>
+                    <ul>
+                        <li><a href="https://instagram.com/dreamyscrunch" target="_blank">@dreamyscrunch</a></li>
+                        <li><a href="mailto:dreamyscrunch@gmail.com">dreamyscrunch@gmail.com</a></li>
+                        <li><a href="https://wa.me/919999999999" target="_blank">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 Dreamy Scrunch. All rights reserved.</span>
+                <span>Made with <span class="heart">❤</span> in India</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,436 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dreamy Scrunch — Get in Touch</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-header {
+            padding: 40px 0 20px;
+            background: linear-gradient(135deg, var(--lavender), var(--blush));
+            text-align: center;
+        }
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+        }
+        .page-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-section {
+            padding: 60px 0;
+            background: var(--white);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+        .contact-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 16px;
+            color: var(--charcoal);
+        }
+        .contact-info p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            background: var(--cream);
+            border-radius: var(--radius);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .contact-method:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow);
+        }
+        .contact-method .icon {
+            font-size: 1.8rem;
+            width: 50px;
+            text-align: center;
+        }
+        .contact-method .details h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+        .contact-method .details p {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        .contact-method .details a {
+            color: var(--deep-rose);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        .contact-method .details a:hover {
+            color: var(--charcoal);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--cream);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        .contact-form h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            color: var(--charcoal);
+        }
+        .contact-form .subtitle {
+            color: var(--text-light);
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+            color: var(--charcoal);
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0d6d6;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background: var(--white);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--deep-rose);
+            box-shadow: 0 0 0 4px rgba(181, 122, 122, 0.1);
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .form-group .btn-primary {
+            width: 100%;
+            justify-content: center;
+            padding: 16px;
+        }
+        .form-note {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        .form-note a {
+            color: var(--deep-rose);
+            font-weight: 600;
+        }
+
+        /* WhatsApp CTA */
+        .whatsapp-cta {
+            background: linear-gradient(135deg, #25D366, #1da851);
+            color: white;
+            padding: 20px 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            margin-top: 30px;
+        }
+        .whatsapp-cta h4 {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+        .whatsapp-cta p {
+            opacity: 0.9;
+            margin-bottom: 12px;
+        }
+        .whatsapp-cta .btn-whatsapp {
+            background: white;
+            color: #25D366;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+        }
+        .whatsapp-cta .btn-whatsapp:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        @media (max-width: 480px) {
+            .contact-form {
+                padding: 24px;
+            }
+            .contact-method {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header id="header">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">Dreamy <span>Scrunch</span></a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="scrunchies.html">Scrunchies</a></li>
+                <li><a href="dresses.html">Dresses</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="contact.html" class="active">Get in Touch</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="https://wa.me/919999999999?text=Hi%20Dreamy%20Scrunch!%20I%27d%20like%20to%20place%20an%20order%20%F0%9F%92%95" target="_blank" class="btn-whatsapp">
+                    Order on WhatsApp
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== PAGE HEADER ========== -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p>We'd love to hear from you — drop us a message or reach out directly!</p>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Left: Contact Info -->
+                <div class="contact-info">
+                    <h2>Let's Connect ✨</h2>
+                    <p>
+                        Whether you have a question about our products, need help with an 
+                        order, or just want to say hello — we're here for you. 
+                        Dreamy Scrunch is a small business, and we personally respond 
+                        to every message.
+                    </p>
+
+                    <div class="contact-methods">
+                        <!-- WhatsApp -->
+                        <div class="contact-method">
+                            <div class="icon">💬</div>
+                            <div class="details">
+                                <h4>Quick Order &amp; Support</h4>
+                                <p>
+                                    <a href="https://wa.me/919999999999?text=Hi%20Dreamy%20Scrunch!%20I%20need%20help%20%F0%9F%92%95" target="_blank">
+                                        Chat on WhatsApp
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="contact-method">
+                            <div class="icon">✉️</div>
+                            <div class="details">
+                                <h4>Email Us</h4>
+                                <p>
+                                    <a href="mailto:dreamyscrunch@gmail.com">
+                                        dreamyscrunch@gmail.com
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Instagram -->
+                        <div class="contact-method">
+                            <div class="icon">📸</div>
+                            <div class="details">
+                                <h4>Follow Us</h4>
+                                <p>
+                                    <a href="https://instagram.com/dreamyscrunch" target="_blank">
+                                        @dreamyscrunch
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="contact-method">
+                            <div class="icon">📍</div>
+                            <div class="details">
+                                <h4>Based in</h4>
+                                <p>India — Shipping nationwide</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp CTA -->
+                    <div class="whatsapp-cta">
+                        <h4>🚀 Ready to place an order?</h4>
+                        <p>Get personalized assistance and quick service on WhatsApp</p>
+                        <a href="https://wa.me/919999999999?text=Hi%20Dreamy%20Scrunch!%20I%27d%20like%20to%20place%20an%20order%20%F0%9F%92%95" target="_blank" class="btn-whatsapp">
+                            Order on WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Contact Form -->
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <p class="subtitle">We'll get back to you within 24 hours</p>
+
+                    <form id="contactForm" onsubmit="return handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" placeholder="Your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="your@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Tell us how we can help you..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn-primary">
+                                Send Message ✨
+                            </button>
+                        </div>
+
+                        <div class="form-note">
+                            For faster orders, please contact us on 
+                            <a href="https://wa.me/919999999999?text=Hi%20Dreamy%20Scrunch!%20I%27d%20like%20to%20place%20an%20order%20%F0%9F%92%95" target="_blank">WhatsApp</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">Dreamy <span>Scrunch</span></a>
+                    <p>
+                        Handmade scrunchies and baby girl dresses with love,
+                        quality, and a touch of dream.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/dreamyscrunch" target="_blank" aria-label="Instagram">📸</a>
+                        <a href="mailto:dreamyscrunch@gmail.com" aria-label="Email">✉️</a>
+                        <a href="https://wa.me/919999999999" target="_blank" aria-label="WhatsApp">💬</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="scrunchies.html">Scrunchies</a></li>
+                        <li><a href="dresses.html">Dresses</a></li>
+                        <li><a href="our-story.html">Our Story</a></li>
+                        <li><a href="contact.html">Get in Touch</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="https://wa.me/919999999999" target="_blank">Order on WhatsApp</a></li>
+                        <li><a href="mailto:dreamyscrunch@gmail.com">Email Us</a></li>
+                        <li><a href="contact.html">Contact Form</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Connect</h5>
+                    <ul>
+                        <li><a href="https://instagram.com/dreamyscrunch" target="_blank">@dreamyscrunch</a></li>
+                        <li><a href="mailto:dreamyscrunch@gmail.com">dreamyscrunch@gmail.com</a></li>
+                        <li><a href="https://wa.me/919999999999" target="_blank">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 Dreamy Scrunch. All rights reserved.</span>
+                <span>Made with <span class="heart">❤</span> in India</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // ===== CONTACT FORM HANDLER =====
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!fullName || !email || !message) {
+                alert('Please fill in all fields 💕');
+                return false;
+            }
+
+            // Build WhatsApp message
+            const whatsappMessage = `Hi Dreamy Scrunch! 💕%0A%0A*Name:* ${fullName}%0A*Email:* ${email}%0A*Message:* ${message}`;
+            const whatsappURL = `https://wa.me/919999999999?text=${whatsappMessage}`;
+
+            // Open WhatsApp
+            window.open(whatsappURL, '_blank');
+
+            // Show success message
+            alert('✨ Your message has been sent! We\'ll get back to you soon via WhatsApp.');
+
+            // Reset form
+            document.getElementById('contactForm').reset();
+            return false;
+        }
+    </script>
+</body>
+</html>

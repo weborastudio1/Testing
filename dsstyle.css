@@ -1,0 +1,823 @@
+/* ============================================
+   DREAMY SCRUNCH — MAIN STYLESHEET
+   Shared across all pages
+   ============================================ */
+
+/* ========== RESET & BASE ========== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blush: #f9e4e0;
+    --lavender: #e8e0f0;
+    --sky: #dceaf5;
+    --cream: #fdf8f4;
+    --rose: #d4a0a0;
+    --soft-pink: #f5d6d0;
+    --deep-rose: #b57a7a;
+    --charcoal: #2d2a2a;
+    --text-light: #5a4e4e;
+    --white: #ffffff;
+    --shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.10);
+    --radius: 20px;
+    --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ========== SCROLLBAR STYLING ========== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--deep-rose);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--rose);
+}
+
+/* ========== SELECTION ========== */
+::selection {
+    background: var(--deep-rose);
+    color: var(--white);
+}
+
+/* ========== BUTTONS ========== */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--charcoal);
+    color: var(--white);
+    padding: 14px 34px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(45, 42, 42, 0.15);
+    font-family: 'Inter', sans-serif;
+}
+
+.btn-primary:hover {
+    background: var(--deep-rose);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(181, 122, 122, 0.30);
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--charcoal);
+    padding: 14px 34px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 2px solid var(--charcoal);
+    transition: var(--transition);
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+}
+
+.btn-secondary:hover {
+    background: var(--charcoal);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #25D366;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.30);
+    font-family: 'Inter', sans-serif;
+}
+
+.btn-whatsapp:hover {
+    background: #1da851;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.40);
+}
+
+/* ========== HEADER / NAV ========== */
+header {
+    background: rgba(253, 248, 244, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 14px 0;
+    transition: var(--transition);
+}
+
+header.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--charcoal);
+    transition: var(--transition);
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+.logo span {
+    color: var(--deep-rose);
+    font-style: italic;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-light);
+    transition: var(--transition);
+    position: relative;
+    letter-spacing: 0.2px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: var(--deep-rose);
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--charcoal);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a.active {
+    color: var(--charcoal);
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-actions .btn-whatsapp {
+    padding: 10px 22px;
+    font-size: 0.85rem;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.hamburger span {
+    display: block;
+    width: 26px;
+    height: 2.5px;
+    background: var(--charcoal);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ========== HERO ========== */
+.hero {
+    padding: 60px 0 80px;
+    background: linear-gradient(165deg, var(--cream) 0%, var(--blush) 40%, var(--lavender) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: rgba(212, 160, 160, 0.08);
+    pointer-events: none;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -5%;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: rgba(216, 190, 220, 0.08);
+    pointer-events: none;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--charcoal);
+    margin-bottom: 16px;
+}
+
+.hero-content h1 .highlight {
+    color: var(--deep-rose);
+    font-style: italic;
+}
+
+.hero-content p {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    max-width: 460px;
+    margin-bottom: 32px;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+}
+
+.hero-buttons .btn-whatsapp {
+    padding: 16px 36px;
+    font-size: 1rem;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image .placeholder {
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blush), var(--lavender));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--deep-rose);
+    text-align: center;
+    padding: 40px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    flex-direction: column;
+    gap: 8px;
+}
+
+.hero-image .placeholder span {
+    font-size: 3rem;
+    display: block;
+}
+
+.hero-image .placeholder small {
+    font-size: 0.85rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: var(--text-light);
+    margin-top: 4px;
+}
+
+/* ========== FEATURED / PRODUCTS ========== */
+.featured {
+    padding: 80px 0 60px;
+    background: var(--white);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+}
+
+.section-header p {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.product-grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+}
+
+.product-card {
+    background: var(--cream);
+    border-radius: var(--radius);
+    padding: 28px 24px 32px;
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: var(--shadow);
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.product-card .image-placeholder {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 14px;
+    background: linear-gradient(145deg, var(--blush), var(--lavender));
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
+    color: var(--deep-rose);
+    font-weight: 300;
+}
+
+.product-card h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--charcoal);
+}
+
+.product-card .subtitle {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.product-card .price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--deep-rose);
+    margin-bottom: 16px;
+}
+
+.product-card .rating {
+    font-size: 0.9rem;
+    color: #f5b342;
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+}
+
+.product-card .btn-whatsapp {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+    font-size: 0.9rem;
+}
+
+/* ========== WHY CHOOSE US ========== */
+.why-choose {
+    padding: 80px 0;
+    background: linear-gradient(165deg, var(--cream) 0%, var(--lavender) 100%);
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    margin-top: 16px;
+}
+
+.why-item {
+    text-align: center;
+    padding: 20px 12px;
+}
+
+.why-item .icon {
+    font-size: 2.8rem;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.why-item h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--charcoal);
+}
+
+.why-item p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* ========== BRAND STORY SNIPPET ========== */
+.brand-story {
+    padding: 70px 0;
+    background: var(--white);
+}
+
+.brand-story .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.brand-story .story-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--charcoal);
+}
+
+.brand-story .story-content p {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.brand-story .story-image {
+    background: linear-gradient(135deg, var(--blush), var(--sky));
+    border-radius: var(--radius);
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--deep-rose);
+    text-align: center;
+    padding: 40px;
+    box-shadow: var(--shadow);
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background: var(--charcoal);
+    color: rgba(255, 255, 255, 0.85);
+    padding: 50px 0 30px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand .logo {
+    color: var(--white);
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    display: inline-block;
+}
+
+.footer-brand .logo:hover {
+    opacity: 0.8;
+}
+
+.footer-brand p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 300px;
+    opacity: 0.8;
+}
+
+.footer-col h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--white);
+    letter-spacing: 0.3px;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    transition: var(--transition);
+}
+
+.footer-col ul li a:hover {
+    opacity: 1;
+    color: var(--white);
+}
+
+.footer-social {
+    display: flex;
+    gap: 14px;
+    margin-top: 12px;
+}
+
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.footer-social a:hover {
+    background: var(--deep-rose);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+.footer-bottom .heart {
+    color: #e74c6f;
+    display: inline-block;
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Large Screens */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    .brand-story .story-grid {
+        gap: 40px;
+    }
+    .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr;
+    }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .hero-image .placeholder {
+        max-width: 300px;
+    }
+    .brand-story .story-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    /* Navigation */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(253, 248, 244, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 28px;
+        transform: translateX(100%);
+        transition: var(--transition);
+        padding: 40px;
+    }
+
+    .nav-links.open {
+        transform: translateX(0);
+    }
+
+    .nav-links a {
+        font-size: 1.4rem;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-actions .btn-whatsapp {
+        display: none;
+    }
+
+    /* Hero */
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+
+    /* Section Headers */
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    /* Products */
+    .product-grid-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-brand p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .footer-social {
+        justify-content: center;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .product-grid-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .container {
+        padding: 0 16px;
+    }
+    .hero {
+        padding: 40px 0 60px;
+    }
+    .hero-image .placeholder {
+        max-width: 220px;
+        padding: 24px;
+        font-size: 1rem;
+    }
+    .hero-image .placeholder span {
+        font-size: 2rem;
+    }
+    .btn-primary,
+    .btn-secondary {
+        padding: 12px 24px;
+        font-size: 0.85rem;
+    }
+}
+
+/* ========== UTILITY HELPERS ========== */
+.text-center {
+    text-align: center;
+}
+.mt-20 {
+    margin-top: 20px;
+}
+.mb-20 {
+    margin-bottom: 20px;
+}
+.hidden {
+    display: none;
+}

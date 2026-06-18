@@ -1,0 +1,294 @@
+<!-- scrunchies.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dreamy Scrunch — Scrunchies</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional page-specific styles */
+        .page-header {
+            padding: 40px 0 20px;
+            background: linear-gradient(135deg, var(--blush), var(--lavender));
+            text-align: center;
+        }
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+        }
+        .page-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .filter-section {
+            padding: 30px 0;
+            background: var(--white);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .filter-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        .filter-btn {
+            padding: 10px 28px;
+            border: 2px solid var(--charcoal);
+            background: transparent;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--charcoal);
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--charcoal);
+            color: var(--white);
+        }
+        .product-grid {
+            padding: 60px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header id="header">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">Dreamy <span>Scrunch</span></a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="scrunchies.html" class="active">Scrunchies</a></li>
+                <li><a href="dresses.html">Dresses</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="contact.html">Get in Touch</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="https://wa.me/919999999999?text=Hi%20Dreamy%20Scrunch!%20I%27d%20like%20to%20place%20an%20order%20%F0%9F%92%95" target="_blank" class="btn-whatsapp">
+                    Order on WhatsApp
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== PAGE HEADER ========== -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Scrunchies</h1>
+            <p>Handmade silk scrunchies that are gentle on your hair and kind to the planet. Available in dreamy colors.</p>
+        </div>
+    </section>
+
+    <!-- ========== FILTER SECTION ========== -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-wrapper">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="silk">Silk</button>
+                <button class="filter-btn" data-filter="cotton">Baby-Safe Cotton</button>
+                <button class="filter-btn" data-filter="set">Sets</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PRODUCT GRID ========== -->
+    <section class="product-grid">
+        <div class="container">
+            <div class="product-grid-wrapper" id="productGrid">
+                <!-- Product 1 - Silk -->
+                <div class="product-card" data-category="silk">
+                    <div class="image-placeholder">🌸</div>
+                    <h3>Cloud Silk Scrunchie Set</h3>
+                    <div class="subtitle">Part of the Dreamy Clouds Collection</div>
+                    <div class="rating">⭐ 4.9 / 5</div>
+                    <div class="price">₹ 1,199 <span style="font-weight:400;font-size:0.8rem;color:var(--text-light);">(Set of 3)</span></div>
+                    <a href="https://wa.me/919999999999?text=Hi!%20I%27d%20like%20to%20order%20the%20Cloud%20Silk%20Scrunchie%20Set%20%F0%9F%92%95" target="_blank" class="btn-whatsapp">
+                        Buy on WhatsApp
+                    </a>
+                </div>
+
+                <!-- Product 2 - Silk -->
+                <div class="product-card" data-category="silk">
+                    <div class="image-placeholder">🌊</div>
+                    <h3>Ocean Breeze Silk Scrunchie</h3>
+                    <div class="subtitle">Pure Mulberry Silk</div>
+                    <div class="rating">⭐ 4.8 / 5</div>
+                    <div class="price">₹ 499</div>
+                    <a href="https://wa.me/919999999999?text=Hi!%20I%27d%20like%20to%20order%20the%20Ocean%20Breeze%20Silk%20Scrunchie%20%F0%9F%92%95" target="_blank" class="btn-whatsapp">
+                        Buy on WhatsApp
+                    </a>
+                </div>
+
+                <!-- Product 3 - Set -->
+                <div class="product-card" data-category="set">
+                    <div class="image-placeholder">🎀</div>
+                    <h3>Lavender Serenity Scrunchie</h3>
+                    <div class="subtitle">Set of 2</div>
+                    <div class="rating">⭐ 4.9 / 5</div>
+                    <div class="price">₹ 499</div>
+                    <a href="https://wa.me/919999999999?text=Hi!%20I%27d%20like%20to%20order%20the%20Lavender%20Serenity%20Scrunchie%20Set%20%F0%9F%92%95" target="_blank" class="btn-whatsapp">
+                        Buy on WhatsApp
+                    </a>
+                </div>
+
+                <!-- Product 4 - Cotton -->
+                <div class="product-card" data-category="cotton">
+                    <div class="image-placeholder">🌿</div>
+                    <h3>Silkn Lace Baby Scrunchie</h3>
+                    <div class="subtitle">Baby-safe cotton &amp; silk</div>
+                    <div class="rating">⭐ 4.7 / 5</div>
+                    <div class="price">₹ 499</div>
+                    <a href="https://wa.me/919999999999?text=Hi!%20I%27d%20like%20to%20order%20the%20Silkn%20Lace%20Baby%20Scrunchie%20Set%20%F0%9F%92%95" target="_blank" class="btn-whatsapp">
+                        Buy on WhatsApp
+                    </a>
+                </div>
+
+                <!-- Product 5 - Set -->
+                <div class="product-card" data-category="set">
+                    <div class="image-placeholder">🌈</div>
+                    <h3>Dreamy Rainbow Scrunchie Set</h3>
+                    <div class="subtitle">Set of 5 vibrant colors</div>
+                    <div class="rating">⭐ 4.6 / 5</div>
+                    <div class="price">₹ 899</div>
+                    <a href="https://wa.me/919999999999?text=Hi!%20I%27d%20like%20to%20order%20the%20Dreamy%20Rainbow%20Scrunchie%20Set%20%F0%9F%92%95" target="_blank" class="btn-whatsapp">
+                        Buy on WhatsApp
+                    </a>
+                </div>
+
+                <!-- Product 6 - Silk -->
+                <div class="product-card" data-category="silk">
+                    <div class="image-placeholder">🦋</div>
+                    <h3>Butterfly Kiss Silk Scrunchie</h3>
+                    <div class="subtitle">Limited edition print</div>
+                    <div class="rating">⭐ 4.9 / 5</div>
+                    <div class="price">₹ 599</div>
+                    <a href="https://wa.me/919999999999?text=Hi!%20I%27d%20like%20to%20order%20the%20Butterfly%20Kiss%20Silk%20Scrunchie%20%F0%9F%92%95" target="_blank" class="btn-whatsapp">
+                        Buy on WhatsApp
+                    </a>
+                </div>
+
+                <!-- Product 7 - Cotton -->
+                <div class="product-card" data-category="cotton">
+                    <div class="image-placeholder">🧸</div>
+                    <h3>Teddy Bear Baby Scrunchie</h3>
+                    <div class="subtitle">100% organic cotton</div>
+                    <div class="rating">⭐ 4.8 / 5</div>
+                    <div class="price">₹ 399</div>
+                    <a href="https://wa.me/919999999999?text=Hi!%20I%27d%20like%20to%20order%20the%20Teddy%20Bear%20Baby%20Scrunchie%20%F0%9F%92%95" target="_blank" class="btn-whatsapp">
+                        Buy on WhatsApp
+                    </a>
+                </div>
+
+                <!-- Product 8 - Set -->
+                <div class="product-card" data-category="set">
+                    <div class="image-placeholder">✨</div>
+                    <h3>Starlight Scrunchie Set</h3>
+                    <div class="subtitle">Set of 4 glittery scrunchies</div>
+                    <div class="rating">⭐ 4.7 / 5</div>
+                    <div class="price">₹ 799</div>
+                    <a href="https://wa.me/919999999999?text=Hi!%20I%27d%20like%20to%20order%20the%20Starlight%20Scrunchie%20Set%20%F0%9F%92%95" target="_blank" class="btn-whatsapp">
+                        Buy on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">Dreamy <span>Scrunch</span></a>
+                    <p>
+                        Handmade scrunchies and baby girl dresses with love,
+                        quality, and a touch of dream.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/dreamyscrunch" target="_blank" aria-label="Instagram">📸</a>
+                        <a href="mailto:dreamyscrunch@gmail.com" aria-label="Email">✉️</a>
+                        <a href="https://wa.me/919999999999" target="_blank" aria-label="WhatsApp">💬</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="scrunchies.html">Scrunchies</a></li>
+                        <li><a href="dresses.html">Dresses</a></li>
+                        <li><a href="our-story.html">Our Story</a></li>
+                        <li><a href="contact.html">Get in Touch</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="https://wa.me/919999999999" target="_blank">Order on WhatsApp</a></li>
+                        <li><a href="mailto:dreamyscrunch@gmail.com">Email Us</a></li>
+                        <li><a href="contact.html">Contact Form</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Connect</h5>
+                    <ul>
+                        <li><a href="https://instagram.com/dreamyscrunch" target="_blank">@dreamyscrunch</a></li>
+                        <li><a href="mailto:dreamyscrunch@gmail.com">dreamyscrunch@gmail.com</a></li>
+                        <li><a href="https://wa.me/919999999999" target="_blank">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 Dreamy Scrunch. All rights reserved.</span>
+                <span>Made with <span class="heart">❤</span> in India</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // ===== FILTER FUNCTIONALITY =====
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                productCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
