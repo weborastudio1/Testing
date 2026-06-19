@@ -1056,3 +1056,21 @@ footer {
     width: 64px;
   }
 }
+
+
+.mobile-title {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-title {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin-bottom: 16px;
+  }
+
+  .product-info .product-title {
+    display: none;
+  }
+}
