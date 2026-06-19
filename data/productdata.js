@@ -2,5 +2,5 @@
 
 const PRODUCT_SILK_ROSE = {
   id: "silk-rose-scrunchie",
-  name: "Silk Rose sajal"
+  name: "Silk Rose badsah"
 };
