@@ -36,7 +36,7 @@
     <!-- Images -->
     <div class="pd-images">
       <img id="mainImg" class="pd-main-img">
-      <div class="pd-thumbs" id="thumbs"></div>
+      <div class="pd-thumbs" id="pdThumbs"></div>
     </div>
 
     <!-- Info -->
@@ -72,42 +72,48 @@
   </div>
 </footer>
 
-<!-- ===== CONTROL ROOM FILE ===== -->
+<!-- ===== PRODUCT DATA (CONTROL ROOM) ===== -->
 <script src="../data/products-data.js"></script>
 
 <script>
 /* ===============================
-   PRODUCT BINDING
+   VARIABLE SETUP ONLY
    =============================== */
 
 const product = PRODUCTS.silk_rose_scrunchie;
 
-/* Text */
-pdBrand.innerText = product.brand;
-pdTitle.innerText = product.name;
-pdPrice.innerText = "₹" + product.price;
-pdOriginal.innerText = "₹" + product.originalPrice;
-pdDiscount.innerText = product.discount;
-pdDesc.innerText = product.description;
-pdColor.innerText = product.color;
-pdMaterial.innerText = product.material;
+/* TEXT BINDING */
+document.getElementById("pdBrand").innerText = product.brand;
+document.getElementById("pdTitle").innerText = product.name;
+document.getElementById("pdPrice").innerText = "₹" + product.price;
+document.getElementById("pdOriginal").innerText = "₹" + product.originalPrice;
+document.getElementById("pdDiscount").innerText = product.discount;
+document.getElementById("pdDesc").innerText = product.description;
+document.getElementById("pdColor").innerText = product.color;
+document.getElementById("pdMaterial").innerText = product.material;
 
-/* Images */
+/* IMAGE BINDING */
+const mainImg = document.getElementById("mainImg");
+const thumbsBox = document.getElementById("pdThumbs");
+
 mainImg.src = product.images[0];
 
 product.images.forEach(img => {
-  const thumb = document.createElement("img");
-  thumb.className = "pd-thumb";
-  thumb.src = img;
-  thumb.onclick = () => mainImg.src = img;
-  thumbs.appendChild(thumb);
+  const t = document.createElement("img");
+  t.className = "pd-thumb";
+  t.src = img;
+  t.onclick = () => mainImg.src = img;
+  thumbsBox.appendChild(t);
 });
 
-/* Actions */
+/* ACTIONS (same logic, variable based) */
 function orderIG() {
   const msg = `Hi 👋 I want to order\n\n🛍 ${product.name}\n💰 ₹${product.price}`;
   navigator.clipboard.writeText(msg);
-  window.open("https://instagram.com/" + product.instagramUsername, "_blank");
+  window.open(
+    "https://instagram.com/" + product.instagramUsername,
+    "_blank"
+  );
   alert("Message copied 📋 Paste in Instagram DM ❤️");
 }
 </script>
