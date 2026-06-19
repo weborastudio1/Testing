@@ -6,16 +6,36 @@
   <meta name="description" content="Premium silk rose scrunchie by Dreamy Scrunch. Soft, elegant & handmade.">
 
   <link rel="stylesheet" href="../style.css">
-  <script defer src="../script.js"></script>
 </head>
+
 <body>
 
-<!-- HEADER (same as other pages) -->
+<!-- ================================================= -->
+<!-- =============== EDIT SECTION ==================== -->
+<!-- === CLIENT SIRF YAHA CHANGE KARE ================= -->
+
+<script>
+const PRODUCT = {
+  name: "Silk Rose Scrunchie",
+  price: "199",
+  originalPrice: "299",
+  discount: "33% OFF",
+  color: "Rose Pink",
+  material: "Premium Silk",
+  brand: "Dreamy Scrunch",
+  instagramUsername: "dreamy.scrunch",  // without @
+  description: "Luxurious handmade silk scrunchie designed for comfort, shine & elegance."
+};
+</script>
+
+<!-- ============= EDIT SECTION END ================== -->
+<!-- ================================================= -->
+
 
 <section class="product-detail">
   <div class="container product-grid">
 
-    <!-- LEFT: IMAGES -->
+    <!-- LEFT : IMAGES -->
     <div class="product-images">
       <div class="main-image placeholder">🌸</div>
       <div class="thumbs">
@@ -25,42 +45,65 @@
       </div>
     </div>
 
-    <!-- RIGHT: DETAILS -->
+    <!-- RIGHT : DETAILS -->
     <div class="product-info">
 
-      <span class="product-brand">Dreamy Scrunch</span>
-      <h1 class="product-title">Silk Rose Scrunchie</h1>
+      <span class="product-brand" id="brand"></span>
+      <h1 class="product-title" id="title"></h1>
 
       <div class="price-box">
-        <span class="price-discount">₹199</span>
-        <span class="price-original">₹299</span>
-        <span class="price-off">33% OFF</span>
+        <span class="price-discount" id="price"></span>
+        <span class="price-original" id="originalPrice"></span>
+        <span class="price-off" id="discount"></span>
       </div>
 
-      <p class="product-desc">
-        Luxurious handmade silk scrunchie designed for comfort, shine & elegance.
-      </p>
+      <p class="product-desc" id="description"></p>
 
       <ul class="product-meta">
-        <li><strong>Color:</strong> Rose Pink</li>
-        <li><strong>Material:</strong> Premium Silk</li>
-        <li><strong>Category:</strong> Scrunchies</li>
-        <li><strong>Tags:</strong> Silk, Soft, Premium</li>
+        <li><strong>Color:</strong> <span id="color"></span></li>
+        <li><strong>Material:</strong> <span id="material"></span></li>
         <li><strong>Stock:</strong> <span class="in-stock">In Stock</span></li>
         <li><strong>Return:</strong> No return / exchange</li>
       </ul>
 
-      <a 
-        href="https://wa.me/919999999999?text=I%20want%20to%20order%20Silk%20Rose%20Scrunchie%20-%20₹199"
-        class="btn-whatsapp"
-        target="_blank">
-        Order on WhatsApp
-      </a>
+      <!-- INSTAGRAM ORDER BUTTON -->
+      <button class="btn-instagram" onclick="orderOnInstagram()">
+        Order on Instagram
+      </button>
 
     </div>
-
   </div>
 </section>
+
+
+<!-- ================= DO NOT TOUCH =================== -->
+<script>
+document.getElementById("brand").innerText = PRODUCT.brand;
+document.getElementById("title").innerText = PRODUCT.name;
+document.getElementById("price").innerText = "₹" + PRODUCT.price;
+document.getElementById("originalPrice").innerText = "₹" + PRODUCT.originalPrice;
+document.getElementById("discount").innerText = PRODUCT.discount;
+document.getElementById("description").innerText = PRODUCT.description;
+document.getElementById("color").innerText = PRODUCT.color;
+document.getElementById("material").innerText = PRODUCT.material;
+
+function orderOnInstagram() {
+  const message =
+`Hi 👋 I want to order this product ✨
+
+🛍 Product: ${PRODUCT.name}
+💰 Price: ₹${PRODUCT.price}
+🎨 Color: ${PRODUCT.color}
+
+Please share further details.`;
+
+  navigator.clipboard.writeText(message);
+  window.open("https://www.instagram.com/" + PRODUCT.instagramUsername + "/", "_blank");
+
+  alert("Message copied 📋\nPaste it in Instagram DM & send ❤️");
+}
+</script>
+<!-- ================= DO NOT TOUCH END =============== -->
 
 </body>
 </html>
