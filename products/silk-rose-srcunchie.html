@@ -16,7 +16,7 @@
 
 <script>
 const PRODUCT = {
-  id: "pd1",                     // 📁 images/pd1/
+  id: "silk-rose-scrunchie",      // 📁 images/silk-rose-scrunchie/
   images: ["1.jpg", "2.jpg", "3.jpg"],
 
   name: "Silk Rose Scrunchie",
@@ -43,7 +43,7 @@ const PRODUCT = {
 
     <!-- LEFT : IMAGES -->
     <div class="product-images">
-      <img id="mainImage" class="main-image" src="" alt="Product Image">
+      <img id="mainImage" class="main-image" src="" alt="Silk Rose Scrunchie">
 
       <div class="thumbs" id="thumbs"></div>
     </div>
@@ -96,7 +96,7 @@ const thumbs = document.getElementById("thumbs");
 
 mainImage.src = basePath + PRODUCT.images[0];
 
-PRODUCT.images.forEach((img, index) => {
+PRODUCT.images.forEach(img => {
   const thumb = document.createElement("img");
   thumb.src = basePath + img;
   thumb.className = "thumb";
