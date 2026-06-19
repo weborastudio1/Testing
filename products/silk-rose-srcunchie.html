@@ -3,21 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Silk Rose Scrunchie | Dreamy Scrunch</title>
-  <meta name="description" content="Premium silk rose scrunchie by Dreamy Scrunch.">
 
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../productcss.css">
 </head>
 
 <body>
-<!-- ========== HEADER ========== -->
+
+<!-- ===== HEADER (style.css) ===== -->
 <header id="header">
   <div class="container nav-wrapper">
+    <a href="../index.html" class="logo">Dreamy <span>Scrunch</span></a>
 
-    <a href="../index.html" class="logo">
-      Dreamy <span>Scrunch</span>
-    </a>
-
-    <ul class="nav-links" id="navLinks">
+    <ul class="nav-links">
       <li><a href="../index.html">Home</a></li>
       <li><a href="../scrunchies.html">Scrunchies</a></li>
       <li><a href="../dresses.html">Dresses</a></li>
@@ -25,177 +23,73 @@
       <li><a href="../contact.html">Get in Touch</a></li>
     </ul>
 
-    <div class="nav-actions">
-      <a href="https://instagram.com/dreamyscrunch"
-         target="_blank"
-         class="btn-instagram">
-        Order Now
-      </a>
-
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-
+    <a href="https://instagram.com/dreamyscrunch" target="_blank" class="btn-instagram">
+      Order Now
+    </a>
   </div>
 </header>
 
-<!-- ================================================= -->
-<!-- =============== ✏️ EDIT SECTION ================= -->
-<!-- === CLIENT SIRF YAHA CHANGE KARE ================= -->
+<!-- ===== PRODUCT SECTION (productcss.css) ===== -->
+<section class="pd-section">
+  <div class="container pd-layout">
 
-<script>
-const PRODUCT = {
-  id: "silk-rose-scrunchie",      // 📁 images/silk-rose-scrunchie/
-  images: ["1.jpg", "2.jpg", "3.jpg"],
-
-  name: "Silk Rose Scrunchie",
-  price: "199",
-  originalPrice: "299",
-  discount: "33% OFF",
-
-  color: "Rose Pink",
-  material: "Premium Silk",
-  brand: "Dreamy Scrunch",
-
-  instagramUsername: "dreamyscrunch", // without @
-
-  description: "Luxurious handmade silk scrunchie designed for comfort, shine & elegance."
-};
-</script>
-
-<!-- ============= ✏️ EDIT SECTION END ================ -->
-<!-- ================================================= -->
-
-
-<section class="product-detail">
-  <div class="container">
-
-    <!-- MOBILE FIRST TITLE -->
-    <h1 class="product-title mobile-title" id="title"></h1>
-
-    <div class="product-grid">
-
-      <!-- IMAGES -->
-      <div class="product-images">
-        <img id="mainImage" class="main-image" src="" alt="Silk Rose Scrunchie">
-        <div class="thumbs" id="thumbs"></div>
+    <!-- Images -->
+    <div class="pd-images">
+      <img id="mainImg" class="pd-main-img" src="../images/silk-rose-scrunchie/1.jpg">
+      <div class="pd-thumbs">
+        <img class="pd-thumb" src="../images/silk-rose-scrunchie/1.jpg" onclick="swap(this)">
+        <img class="pd-thumb" src="../images/silk-rose-scrunchie/2.jpg" onclick="swap(this)">
+        <img class="pd-thumb" src="../images/silk-rose-scrunchie/3.jpg" onclick="swap(this)">
       </div>
-
-      <!-- DETAILS -->
-      <div class="product-info">
-        <span class="product-brand" id="brand"></span>
-
-        <!-- DESKTOP TITLE -->
-        <h1 class="product-title desktop-title"></h1>
-
-        <div class="price-box">
-          <span class="price-discount" id="price"></span>
-          <span class="price-original" id="originalPrice"></span>
-          <span class="price-off" id="discount"></span>
-        </div>
-
-        <button class="btn-instagram" onclick="orderOnInstagram()">
-          Order on Instagram
-        </button>
-
-        <p class="product-desc" id="description"></p>
-
-        <ul class="product-meta">
-          <li><strong>Color:</strong> <span id="color"></span></li>
-          <li><strong>Material:</strong> <span id="material"></span></li>
-          <li><strong>Stock:</strong> <span class="in-stock">In Stock</span></li>
-          <li><strong>Return:</strong> No return / exchange</li>
-        </ul>
-      </div>
-
     </div>
+
+    <!-- Info -->
+    <div class="pd-info">
+      <span class="pd-brand">Dreamy Scrunch</span>
+      <h1 class="pd-title">Silk Rose Scrunchie</h1>
+
+      <div class="pd-price-box">
+        <span class="pd-price">₹199</span>
+        <span class="pd-original">₹299</span>
+        <span class="pd-off">33% OFF</span>
+      </div>
+
+      <button class="pd-order-btn" onclick="orderIG()">Order on Instagram</button>
+
+      <p class="pd-desc">
+        Luxurious handmade silk scrunchie designed for comfort, shine & elegance.
+      </p>
+
+      <ul class="pd-meta">
+        <li><strong>Color:</strong> Rose Pink</li>
+        <li><strong>Material:</strong> Premium Silk</li>
+        <li><strong>Stock:</strong> In Stock</li>
+        <li><strong>Return:</strong> No return / exchange</li>
+      </ul>
+    </div>
+
   </div>
 </section>
 
-<!-- ========== FOOTER ========== -->
+<!-- ===== FOOTER (style.css) ===== -->
 <footer>
-    <div class="container">
-        <div class="footer-grid">
-
-            <div class="footer-brand">
-                <a href="index.html" class="logo">Dreamy <span>Scrunch</span></a>
-                <p>Handmade scrunchies and baby dresses with love.</p>
-
-                <div class="footer-social">
-                    <a href="https://instagram.com/dreamyscrunch" target="_blank">📸</a>
-                    <a href="mailto:dreamyscrunch@gmail.com">✉️</a>
-                </div>
-            </div>
-
-            <div class="footer-col">
-                <h5>Support</h5>
-                <ul>
-                    <li><a href="https://instagram.com/dreamyscrunch" target="_blank">Order on Instagram</a></li>
-                    <li><a href="mailto:dreamyscrunch@gmail.com">Email Us</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h5>Connect</h5>
-                <ul>
-                    <li><a href="https://instagram.com/dreamyscrunch" target="_blank">@dreamyscrunch</a></li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            <span>&copy; 2026 Dreamy Scrunch</span>
-            <span>Made with ❤ in India</span>
-        </div>
-    </div>
+  <div class="container">
+    <p>© 2026 Dreamy Scrunch • Made with ❤ in India</p>
+  </div>
 </footer>
-<!-- ================= DO NOT TOUCH =================== -->
+
 <script>
-/* TEXT DATA */
-brand.innerText = PRODUCT.brand;
-title.innerText = PRODUCT.name;
-document.querySelector(".desktop-title").innerText = PRODUCT.name;
-price.innerText = "₹" + PRODUCT.price;
-originalPrice.innerText = "₹" + PRODUCT.originalPrice;
-discount.innerText = PRODUCT.discount;
-description.innerText = PRODUCT.description;
-color.innerText = PRODUCT.color;
-material.innerText = PRODUCT.material;
+function swap(el) {
+  document.getElementById("mainImg").src = el.src;
+}
 
-/* IMAGE SYSTEM */
-const basePath = "../images/" + PRODUCT.id + "/";
-const mainImage = document.getElementById("mainImage");
-const thumbs = document.getElementById("thumbs");
-
-mainImage.src = basePath + PRODUCT.images[0];
-
-PRODUCT.images.forEach(img => {
-  const thumb = document.createElement("img");
-  thumb.src = basePath + img;
-  thumb.className = "thumb";
-  thumb.onclick = () => mainImage.src = basePath + img;
-  thumbs.appendChild(thumb);
-});
-
-/* INSTAGRAM ORDER */
-function orderOnInstagram() {
-  const msg =
-`Hi 👋 I want to order ✨
-
-🛍 Product: ${PRODUCT.name}
-💰 Price: ₹${PRODUCT.price}
-🎨 Color: ${PRODUCT.color}`;
-
+function orderIG() {
+  const msg = `Hi 👋 I want to order\n\n🛍 Silk Rose Scrunchie\n💰 ₹199`;
   navigator.clipboard.writeText(msg);
-  window.open("https://www.instagram.com/" + PRODUCT.instagramUsername + "/", "_blank");
-  alert("Message copied 📋\nPaste in Instagram DM ❤️");
+  window.open("https://instagram.com/dreamyscrunch", "_blank");
+  alert("Message copied 📋 Paste in Instagram DM ❤️");
 }
 </script>
-<!-- ================= DO NOT TOUCH END =============== -->
 
 </body>
 </html>
