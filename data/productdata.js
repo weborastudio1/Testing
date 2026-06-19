@@ -4,7 +4,7 @@ const PRODUCTS = {
     name: "Silk Rose Scrunchie",
     price: "199",
     originalPrice: "299",
-    discount: "33% OFF",
+    discount: "3% OFF",
     description: "Luxurious handmade silk scrunchie designed for comfort, shine & elegance.",
     color: "Rose Pink",
     material: "Premium Silk"
