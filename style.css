@@ -934,3 +934,20 @@ footer {
   transform: translateY(-3px);
   box-shadow: 0 12px 35px rgba(221, 42, 123, 0.45);
 }
+
+
+/* ===== PRODUCT IMAGE ===== */
+.product-image {
+    width: 100%;
+    height: 220px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #f6f6f6;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
