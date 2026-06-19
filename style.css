@@ -912,3 +912,25 @@ footer {
   color: #2ecc71;
   font-weight: 600;
 }
+
+/* ================= INSTAGRAM ORDER BUTTON ================= */
+
+.btn-instagram {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 8px 25px rgba(221, 42, 123, 0.35);
+}
+
+.btn-instagram:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(221, 42, 123, 0.45);
+}
