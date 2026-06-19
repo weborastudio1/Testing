@@ -935,4 +935,81 @@ footer {
   box-shadow: 0 12px 35px rgba(221, 42, 123, 0.45);
 }
 
+/* ===== MOBILE FIRST PRODUCT PAGE ===== */
 
+.mobile-title {
+  display: none;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  margin-bottom: 16px;
+}
+
+.desktop-title {
+  display: block;
+}
+
+/* IMAGE */
+.main-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* BUTTON FULL WIDTH ON MOBILE */
+.btn-instagram {
+  width: 100%;
+  margin: 16px 0;
+}
+
+/* ===== MOBILE VIEW ===== */
+@media (max-width: 768px) {
+
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .mobile-title {
+    display: block;
+  }
+
+  .desktop-title {
+    display: none;
+  }
+
+  .product-detail {
+    padding: 40px 0;
+  }
+
+  .product-images {
+    order: 1;
+  }
+
+  .product-info {
+    order: 2;
+  }
+
+  .price-box {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .product-desc {
+    font-size: 0.95rem;
+  }
+
+  .thumb {
+    width: 64px;
+  }
+}
+
+/* ===== SMALL MOBILE ===== */
+@media (max-width: 480px) {
+
+  .mobile-title {
+    font-size: 1.6rem;
+  }
+
+  .price-discount {
+    font-size: 1.5rem;
+  }
+}
