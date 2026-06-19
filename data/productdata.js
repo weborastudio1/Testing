@@ -1,6 +1,6 @@
 const PRODUCTS = {
   "silk-rose-scrunchie": {
-    brand: "Dreamy Scrunch",
+    brand: "Dreamy Scrunch 2.0",
     name: "Silk Rose Scrunchie",
     price: "199",
     originalPrice: "299",
