@@ -71,39 +71,45 @@ const PRODUCT = {
 
 
 <section class="product-detail">
-  <div class="container product-grid">
+  <div class="container">
 
-    <!-- LEFT : IMAGES -->
-    <div class="product-images">
-      <img id="mainImage" class="main-image" src="" alt="Silk Rose Scrunchie">
+    <!-- MOBILE FIRST TITLE -->
+    <h1 class="product-title mobile-title" id="title"></h1>
 
-      <div class="thumbs" id="thumbs"></div>
-    </div>
+    <div class="product-grid">
 
-    <!-- RIGHT : DETAILS -->
-    <div class="product-info">
-
-      <span class="product-brand" id="brand"></span>
-      <h1 class="product-title" id="title"></h1>
-
-      <div class="price-box">
-        <span class="price-discount" id="price"></span>
-        <span class="price-original" id="originalPrice"></span>
-        <span class="price-off" id="discount"></span>
+      <!-- IMAGES -->
+      <div class="product-images">
+        <img id="mainImage" class="main-image" src="" alt="Silk Rose Scrunchie">
+        <div class="thumbs" id="thumbs"></div>
       </div>
 
-      <p class="product-desc" id="description"></p>
+      <!-- DETAILS -->
+      <div class="product-info">
+        <span class="product-brand" id="brand"></span>
 
-      <ul class="product-meta">
-        <li><strong>Color:</strong> <span id="color"></span></li>
-        <li><strong>Material:</strong> <span id="material"></span></li>
-        <li><strong>Stock:</strong> <span class="in-stock">In Stock</span></li>
-        <li><strong>Return:</strong> No return / exchange</li>
-      </ul>
+        <!-- DESKTOP TITLE -->
+        <h1 class="product-title desktop-title"></h1>
 
-      <button class="btn-instagram" onclick="orderOnInstagram()">
-        Order on Instagram
-      </button>
+        <div class="price-box">
+          <span class="price-discount" id="price"></span>
+          <span class="price-original" id="originalPrice"></span>
+          <span class="price-off" id="discount"></span>
+        </div>
+
+        <button class="btn-instagram" onclick="orderOnInstagram()">
+          Order on Instagram
+        </button>
+
+        <p class="product-desc" id="description"></p>
+
+        <ul class="product-meta">
+          <li><strong>Color:</strong> <span id="color"></span></li>
+          <li><strong>Material:</strong> <span id="material"></span></li>
+          <li><strong>Stock:</strong> <span class="in-stock">In Stock</span></li>
+          <li><strong>Return:</strong> No return / exchange</li>
+        </ul>
+      </div>
 
     </div>
   </div>
