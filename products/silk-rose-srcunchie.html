@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Silk Rose Scrunchie | Dreamy Scrunch</title>
-  <meta name="description" content="Premium silk rose scrunchie by Dreamy Scrunch. Soft, elegant & handmade.">
+  <meta name="description" content="Premium silk rose scrunchie by Dreamy Scrunch.">
 
   <link rel="stylesheet" href="../style.css">
 </head>
@@ -11,24 +11,30 @@
 <body>
 
 <!-- ================================================= -->
-<!-- =============== EDIT SECTION ==================== -->
+<!-- =============== ✏️ EDIT SECTION ================= -->
 <!-- === CLIENT SIRF YAHA CHANGE KARE ================= -->
 
 <script>
 const PRODUCT = {
+  id: "pd1",                     // 📁 images/pd1/
+  images: ["1.jpg", "2.jpg", "3.jpg"],
+
   name: "Silk Rose Scrunchie",
   price: "199",
   originalPrice: "299",
   discount: "33% OFF",
+
   color: "Rose Pink",
   material: "Premium Silk",
   brand: "Dreamy Scrunch",
-  instagramUsername: "dreamyscrunch",  // without @
+
+  instagramUsername: "dreamyscrunch", // without @
+
   description: "Luxurious handmade silk scrunchie designed for comfort, shine & elegance."
 };
 </script>
 
-<!-- ============= EDIT SECTION END ================== -->
+<!-- ============= ✏️ EDIT SECTION END ================ -->
 <!-- ================================================= -->
 
 
@@ -37,12 +43,9 @@ const PRODUCT = {
 
     <!-- LEFT : IMAGES -->
     <div class="product-images">
-      <div class="main-image placeholder">🌸</div>
-      <div class="thumbs">
-        <div class="thumb placeholder">🌸</div>
-        <div class="thumb placeholder">🌸</div>
-        <div class="thumb placeholder">🌸</div>
-      </div>
+      <img id="mainImage" class="main-image" src="" alt="Product Image">
+
+      <div class="thumbs" id="thumbs"></div>
     </div>
 
     <!-- RIGHT : DETAILS -->
@@ -66,7 +69,6 @@ const PRODUCT = {
         <li><strong>Return:</strong> No return / exchange</li>
       </ul>
 
-      <!-- INSTAGRAM ORDER BUTTON -->
       <button class="btn-instagram" onclick="orderOnInstagram()">
         Order on Instagram
       </button>
@@ -75,32 +77,45 @@ const PRODUCT = {
   </div>
 </section>
 
-
 <!-- ================= DO NOT TOUCH =================== -->
 <script>
-document.getElementById("brand").innerText = PRODUCT.brand;
-document.getElementById("title").innerText = PRODUCT.name;
-document.getElementById("price").innerText = "₹" + PRODUCT.price;
-document.getElementById("originalPrice").innerText = "₹" + PRODUCT.originalPrice;
-document.getElementById("discount").innerText = PRODUCT.discount;
-document.getElementById("description").innerText = PRODUCT.description;
-document.getElementById("color").innerText = PRODUCT.color;
-document.getElementById("material").innerText = PRODUCT.material;
+/* TEXT DATA */
+brand.innerText = PRODUCT.brand;
+title.innerText = PRODUCT.name;
+price.innerText = "₹" + PRODUCT.price;
+originalPrice.innerText = "₹" + PRODUCT.originalPrice;
+discount.innerText = PRODUCT.discount;
+description.innerText = PRODUCT.description;
+color.innerText = PRODUCT.color;
+material.innerText = PRODUCT.material;
 
+/* IMAGE SYSTEM */
+const basePath = "../images/" + PRODUCT.id + "/";
+const mainImage = document.getElementById("mainImage");
+const thumbs = document.getElementById("thumbs");
+
+mainImage.src = basePath + PRODUCT.images[0];
+
+PRODUCT.images.forEach((img, index) => {
+  const thumb = document.createElement("img");
+  thumb.src = basePath + img;
+  thumb.className = "thumb";
+  thumb.onclick = () => mainImage.src = basePath + img;
+  thumbs.appendChild(thumb);
+});
+
+/* INSTAGRAM ORDER */
 function orderOnInstagram() {
-  const message =
-`Hi 👋 I want to order this product ✨
+  const msg =
+`Hi 👋 I want to order ✨
 
 🛍 Product: ${PRODUCT.name}
 💰 Price: ₹${PRODUCT.price}
-🎨 Color: ${PRODUCT.color}
+🎨 Color: ${PRODUCT.color}`;
 
-Please share further details.`;
-
-  navigator.clipboard.writeText(message);
+  navigator.clipboard.writeText(msg);
   window.open("https://www.instagram.com/" + PRODUCT.instagramUsername + "/", "_blank");
-
-  alert("Message copied 📋\nPaste it in Instagram DM & send ❤️");
+  alert("Message copied 📋\nPaste in Instagram DM ❤️");
 }
 </script>
 <!-- ================= DO NOT TOUCH END =============== -->
