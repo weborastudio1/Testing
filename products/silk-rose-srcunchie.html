@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title id="pageTitle"></title>
+  <title>Silk Rose Scrunchie | Dreamy Scrunch</title>
 
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../productcss.css">
@@ -10,7 +10,7 @@
 
 <body>
 
-<!-- ===== HEADER ===== -->
+<!-- ===== HEADER (style.css) ===== -->
 <header id="header">
   <div class="container nav-wrapper">
     <a href="../index.html" class="logo">Dreamy <span>Scrunch</span></a>
@@ -23,11 +23,13 @@
       <li><a href="../contact.html">Get in Touch</a></li>
     </ul>
 
-    <a id="headerIG" target="_blank" class="btn-instagram">Order Now</a>
+    <a href="https://instagram.com/dreamyscrunch" target="_blank" class="btn-instagram">
+      Order Now
+    </a>
   </div>
 </header>
 
-<!-- ===== PRODUCT SECTION ===== -->
+<!-- ===== PRODUCT SECTION (productcss.css) ===== -->
 <section class="pd-section">
   <div class="container pd-layout">
 
@@ -39,88 +41,71 @@
 
     <!-- Info -->
     <div class="pd-info">
-      <span class="pd-brand" id="brand"></span>
-      <h1 class="pd-title" id="name"></h1>
+      <span class="pd-brand" id="pdBrand"></span>
+      <h1 class="pd-title" id="pdTitle"></h1>
 
       <div class="pd-price-box">
-        <span class="pd-price" id="price"></span>
-        <span class="pd-original" id="originalPrice"></span>
-        <span class="pd-off" id="discount"></span>
+        <span class="pd-price" id="pdPrice"></span>
+        <span class="pd-original" id="pdOriginal"></span>
+        <span class="pd-off" id="pdDiscount"></span>
       </div>
 
       <button class="pd-order-btn" onclick="orderIG()">Order on Instagram</button>
 
-      <p class="pd-desc" id="description"></p>
+      <p class="pd-desc" id="pdDesc"></p>
 
       <ul class="pd-meta">
-        <li><strong>Color:</strong> <span id="color"></span></li>
-        <li><strong>Material:</strong> <span id="material"></span></li>
-        <li><strong>Stock:</strong> <span id="stock"></span></li>
-        <li><strong>Return:</strong> <span id="returnPolicy"></span></li>
+        <li><strong>Color:</strong> <span id="pdColor"></span></li>
+        <li><strong>Material:</strong> <span id="pdMaterial"></span></li>
+        <li><strong>Stock:</strong> In Stock</li>
+        <li><strong>Return:</strong> No return / exchange</li>
       </ul>
     </div>
 
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- ===== FOOTER (style.css) ===== -->
 <footer>
   <div class="container">
     <p>© 2026 Dreamy Scrunch • Made with ❤ in India</p>
   </div>
 </footer>
 
-<!-- ===== DATA & LOGIC ===== -->
+<!-- ===== CONTROL ROOM FILE ===== -->
 <script src="../data/products-data.js"></script>
 
 <script>
-/* ================================
+/* ===============================
    PRODUCT BINDING
-   ================================ */
+   =============================== */
 
 const product = PRODUCTS.silk_rose_scrunchie;
-const imgBase = "../images/" + product.id + "/";
 
-/* PAGE META */
-document.getElementById("pageTitle").innerText =
-  product.name + " | Dreamy Scrunch";
+/* Text */
+pdBrand.innerText = product.brand;
+pdTitle.innerText = product.name;
+pdPrice.innerText = "₹" + product.price;
+pdOriginal.innerText = "₹" + product.originalPrice;
+pdDiscount.innerText = product.discount;
+pdDesc.innerText = product.description;
+pdColor.innerText = product.color;
+pdMaterial.innerText = product.material;
 
-/* HEADER */
-document.getElementById("headerIG").href =
-  "https://instagram.com/" + product.instagramUsername;
-
-/* TEXT */
-brand.innerText = product.brand;
-name.innerText = product.name;
-price.innerText = "₹" + product.price;
-originalPrice.innerText = "₹" + product.originalPrice;
-discount.innerText = product.discountText;
-description.innerText = product.description;
-color.innerText = product.color;
-material.innerText = product.material;
-stock.innerText = product.stock;
-returnPolicy.innerText = product.returnPolicy;
-
-/* IMAGES */
-mainImg.src = imgBase + product.images[0];
+/* Images */
+mainImg.src = product.images[0];
 
 product.images.forEach(img => {
-  const t = document.createElement("img");
-  t.src = imgBase + img;
-  t.className = "pd-thumb";
-  t.onclick = () => mainImg.src = t.src;
-  thumbs.appendChild(t);
+  const thumb = document.createElement("img");
+  thumb.className = "pd-thumb";
+  thumb.src = img;
+  thumb.onclick = () => mainImg.src = img;
+  thumbs.appendChild(thumb);
 });
 
-/* ORDER */
+/* Actions */
 function orderIG() {
-  const msg =
-`Hi 👋 I want to order
-
-🛍 ${product.name}
-💰 ₹${product.price}
-🎨 ${product.color}`;
-
+  const msg = `Hi 👋 I want to order\n\n🛍 ${product.name}\n💰 ₹${product.price}`;
   navigator.clipboard.writeText(msg);
   window.open("https://instagram.com/" + product.instagramUsername, "_blank");
   alert("Message copied 📋 Paste in Instagram DM ❤️");
