@@ -46,7 +46,7 @@
     <!-- Info -->
     <div class="pd-info">
       <span class="pd-brand">Dreamy Scrunch</span>
-      <h1 class="pd-title" id="pdTitle"></h1>
+      <h1 class="pd-title">Silk Rose Scrunchie</h1>
 
       <div class="pd-price-box">
         <span class="pd-price">₹199</span>
@@ -78,51 +78,18 @@
   </div>
 </footer>
 
-<script src="../data/productdata.js"></script>
-
 <script>
-  const CURRENT_PRODUCT = PRODUCT_SILK_ROSE;
+function swap(el) {
+  document.getElementById("mainImg").src = el.src;
+}
 
-  // BASIC INFO
-  document.getElementById("pdTitle").innerText = CURRENT_PRODUCT.name;
-  document.getElementById("pdBrand").innerText = CURRENT_PRODUCT.brand;
-
-  // PRICING
-  document.getElementById("pdPrice").innerText =
-    "₹" + CURRENT_PRODUCT.price;
-  document.getElementById("pdOriginal").innerText =
-    "₹" + CURRENT_PRODUCT.originalPrice;
-  document.getElementById("pdDiscount").innerText =
-    CURRENT_PRODUCT.discount;
-
-  // DESCRIPTION
-  document.getElementById("pdDesc").innerText =
-    CURRENT_PRODUCT.description;
-
-  // META
-  document.getElementById("pdColor").innerText =
-    CURRENT_PRODUCT.color;
-  document.getElementById("pdMaterial").innerText =
-    CURRENT_PRODUCT.material;
-
-  // ORDER BUTTON
-  function orderIG() {
-    const msg =
-`Hi 👋 I want to order ✨
-
-🛍 Product: ${CURRENT_PRODUCT.name}
-💰 Price: ₹${CURRENT_PRODUCT.price}
-🎨 Color: ${CURRENT_PRODUCT.color}`;
-
-    navigator.clipboard.writeText(msg);
-    window.open(
-      "https://www.instagram.com/" +
-      CURRENT_PRODUCT.instagramUsername +
-      "/",
-      "_blank"
-    );
-    alert("Message copied 📋\nPaste in Instagram DM ❤️");
-  }
+function orderIG() {
+  const msg = `Hi 👋 I want to order\n\n🛍 Silk Rose Scrunchie\n💰 ₹199`;
+  navigator.clipboard.writeText(msg);
+  window.open("https://instagram.com/dreamyscrunch", "_blank");
+  alert("Message copied 📋 Paste in Instagram DM ❤️");
+}
 </script>
+
 </body>
 </html>
