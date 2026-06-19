@@ -97,5 +97,21 @@ function orderIG() {
   document.getElementById("pdTitle").innerText = CURRENT_PRODUCT.name;
 </script>
 
+<script>
+const productId = "silk-rose-scrunchie";
+const product = PRODUCTS[productId];
+
+document.getElementById("pdBrand").innerText = product.brand;
+document.getElementById("pdTitle").innerText = product.name;
+
+document.getElementById("pdPrice").innerText = "₹" + product.price;
+document.getElementById("pdOriginal").innerText = "₹" + product.originalPrice;
+document.getElementById("pdDiscount").innerText = product.discount;
+
+document.getElementById("pdDesc").innerText = product.description;
+document.getElementById("pdColor").innerText = product.color;
+document.getElementById("pdMaterial").innerText = product.material;
+</script>
+
 </body>
 </html>
