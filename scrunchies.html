@@ -295,5 +295,22 @@
             });
         });
     </script>
+
+<script src="data/productdata.js"></script>
+
+<script>
+  const silkProduct = PRODUCTS["silk-rose-scrunchie"];
+  const card = document.getElementById("scrunchy-silk-rose");
+
+  card.querySelector(".sc-name").innerText = silkProduct.name;
+  card.querySelector(".sc-price").innerText = silkProduct.price;
+  card.querySelector(".sc-original").innerText =
+    "₹" + silkProduct.originalPrice;
+
+  card.querySelector(".sc-link").href =
+    "products/silk-rose-srcunchie.html";
+</script>
+
+
 </body>
 </html>
