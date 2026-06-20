@@ -279,44 +279,40 @@
    SIMILAR PRODUCTS
 ============================== */
 
+/* ==============================
+   SIMILAR PRODUCTS (4 GRID)
+============================== */
+
 .pd-similar {
-  margin-top: 80px;
+  margin-top: 90px;
 }
 
 .pd-similar-title {
-  font-size: 1.6rem;
-  margin-bottom: 20px;
   font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  margin-bottom: 26px;
 }
 
-.pd-similar-scroll {
-  display: flex;
-  gap: 18px;
-  overflow-x: auto;
-  padding-bottom: 10px;
+/* Desktop Grid */
+.pd-similar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
 }
 
-.pd-similar-scroll::-webkit-scrollbar {
-  height: 6px;
-}
-.pd-similar-scroll::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.15);
-  border-radius: 10px;
-}
-
+/* Card */
 .pd-similar-card {
-  min-width: 180px;
   background: #fff;
-  border-radius: 18px;
+  border-radius: 20px;
+  overflow: hidden;
   text-decoration: none;
   color: #000;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .pd-similar-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 22px 45px rgba(0,0,0,0.14);
 }
 
 .pd-similar-img img {
@@ -326,15 +322,46 @@
 }
 
 .pd-similar-info {
-  padding: 12px;
+  padding: 14px;
 }
 
 .pd-similar-info h3 {
-  font-size: 0.95rem;
+  font-size: 1rem;
   margin-bottom: 6px;
+  font-weight: 500;
 }
 
 .pd-similar-price {
   font-weight: 600;
   color: var(--deep-rose);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .pd-similar-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile (horizontal scroll premium) */
+@media (max-width: 600px) {
+  .pd-similar-grid {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+
+  .pd-similar-card {
+    min-width: 180px;
+  }
+
+  .pd-similar-grid::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .pd-similar-grid::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.18);
+    border-radius: 10px;
+  }
 }
