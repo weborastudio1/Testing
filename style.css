@@ -1079,7 +1079,7 @@ footer {
 
 .social-widget {
   position: fixed;
-  right: 22px;
+  left: 22px;   /* right ❌ → left ✅ */
   bottom: 90px;
   z-index: 999;
 }
@@ -1108,10 +1108,9 @@ footer {
   transform: rotate(45deg);
 }
 
-/* Social Icons */
 .social-icon {
   position: absolute;
-  right: 0;
+  left: 0;      /* right ❌ → left ✅ */
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -1123,7 +1122,6 @@ footer {
   transform: scale(0.4);
   transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .social-icon i {
   color: #fff;
   font-size: 20px;
