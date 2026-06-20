@@ -1075,9 +1075,7 @@ footer {
   }
 }
 
-/* ===============================
-   FLOATING SOCIAL WIDGET
-================================ */
+/* ===== FLOATING SOCIAL WIDGET ===== */
 
 .social-widget {
   position: fixed;
@@ -1100,11 +1098,12 @@ footer {
   transition: transform 0.4s ease;
 }
 
-.social-main img {
-  width: 24px;
+.social-main i {
+  color: #fff;
+  font-size: 20px;
 }
 
-/* Rotate on active */
+/* Rotate animation */
 .social-widget.active .social-main {
   transform: rotate(45deg);
 }
@@ -1116,14 +1115,18 @@ footer {
   width: 48px;
   height: 48px;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transform: scale(0.5);
+  transform: scale(0.4);
   transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.social-icon img {
-  width: 22px;
+.social-icon i {
+  color: #fff;
+  font-size: 20px;
 }
 
 /* Instagram */
@@ -1139,14 +1142,14 @@ footer {
   bottom: 130px;
 }
 
-/* Active State */
+/* Active */
 .social-widget.active .social-icon {
   opacity: 1;
   pointer-events: auto;
   transform: scale(1);
 }
 
-/* Hover Effect */
+/* Hover */
 .social-icon:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
