@@ -317,3 +317,12 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('💬 WhatsApp: +91 99999 99999');
 
 }); // End DOMContentLoaded
+
+
+// Floating Social Widget
+const socialToggle = document.getElementById("socialToggle");
+const socialWidget = document.querySelector(".social-widget");
+
+socialToggle.addEventListener("click", () => {
+  socialWidget.classList.toggle("active");
+});
