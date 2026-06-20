@@ -18,6 +18,14 @@
 </head>
 <body>
 
+<!-- ========== LOADING SCREEN ========== -->
+<div id="loading-screen">
+    <div class="loader-box">
+        <div class="loader-circle"></div>
+        <div class="loader-text">Loading...</div>
+    </div>
+</div>
+
 <!-- ========== HEADER ========== -->
 <header id="header">
     <div class="container nav-wrapper">
@@ -254,6 +262,14 @@
 
   card.querySelector(".hp-link").href =
     "products/silk-rose-srcunchie.html";
+</script>
+
+<script>
+window.addEventListener("load", function(){
+    setTimeout(function(){
+        document.getElementById("loading-screen").style.display = "none";
+    }, 1000); // 1 second
+});
 </script>
 
 </body>
