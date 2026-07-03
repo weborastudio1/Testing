@@ -9,10 +9,10 @@ async function fetchProduct() {
   const snap = await getDoc(ref);
 
   if (snap.exists()) {
-    console.log("🔥 PRODUCT DATA:", snap.data());
-  } else {
-    console.log("❌ Product not found");
-  }
+  alert("Product Loaded ✅\n" + JSON.stringify(snap.data()));
+} else {
+  alert("❌ Product not found");
+}
 }
 
 fetchProduct();
