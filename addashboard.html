@@ -2,31 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Admin Dashboard</title>
+  <title>Dreamy Scrunch – Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="admin.css">
 </head>
 <body>
 
-<h2>Admin Panel</h2>
-<button onclick="logout()">Logout</button>
+<!-- ========== TOP BAR ========== -->
+<header class="admin-header">
+  <h1>Dreamy Scrunch ✨</h1>
+  <span class="admin-tag">Admin Dashboard</span>
+</header>
 
-<hr>
+<!-- ========== MAIN ========== -->
+<main class="admin-container">
 
-<h3>Add Product</h3>
+  <!-- LEFT PANEL -->
+  <aside class="admin-sidebar">
+    <h3>Manage</h3>
+    <ul>
+      <li class="active">➕ Add Product</li>
+      <li>🛍 All Products</li>
+      <li>📦 Orders (future)</li>
+      <li>⚙ Settings</li>
+    </ul>
+  </aside>
 
-<input id="title" placeholder="Product Name">
-<input id="price" placeholder="Price">
-<input id="image" placeholder="Image URL">
+  <!-- RIGHT PANEL -->
+  <section class="admin-content">
 
-<button onclick="addProduct()">Add Product</button>
+    <h2>Add / Edit Product</h2>
+    <p class="sub-text">Fill product details carefully ✍️</p>
 
-<hr>
+    <form class="product-form">
 
-<h3>All Products</h3>
-<div id="productList"></div>
+      <div class="form-group">
+        <label>Product ID (unique)</label>
+        <input type="text" placeholder="silk-rose-scrunchie">
+      </div>
 
-<script type="module" src="firebase.js"></script>
-<script type="module" src="auth.js"></script>
-<script type="module" src="products.js"></script>
+      <div class="form-group">
+        <label>Product Name</label>
+        <input type="text" placeholder="Silk Rose Scrunchie">
+      </div>
+
+      <div class="form-group">
+        <label>Brand</label>
+        <input type="text" placeholder="Dreamy Scrunch">
+      </div>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label>Price (₹)</label>
+          <input type="number" placeholder="199">
+        </div>
+
+        <div class="form-group">
+          <label>Original Price (₹)</label>
+          <input type="number" placeholder="299">
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label>Discount</label>
+          <input type="text" placeholder="33% OFF">
+        </div>
+
+        <div class="form-group">
+          <label>Rating</label>
+          <input type="text" placeholder="4.9">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Color</label>
+        <input type="text" placeholder="Rose Pink">
+      </div>
+
+      <div class="form-group">
+        <label>Material</label>
+        <input type="text" placeholder="Premium Silk">
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <textarea rows="4" placeholder="Product description here..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Category</label>
+        <input type="text" placeholder="silk / cotton / premium">
+      </div>
+
+      <div class="form-group">
+        <label>Tags (comma separated)</label>
+        <input type="text" placeholder="scrunchie, silk, premium">
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn-primary">Save Product</button>
+        <button type="reset" class="btn-secondary">Clear</button>
+      </div>
+
+    </form>
+
+  </section>
+
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="admin-footer">
+  © 2026 Dreamy Scrunch • Admin Panel
+</footer>
+
 </body>
 </html>
