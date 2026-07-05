@@ -10,9 +10,9 @@ window.login = function () {
   const password = document.getElementById("password").value;
 
   signInWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      window.location.href = "dashboard.html";
-    })
+.then(() => {
+  window.location.href = "addashboard.html";
+});
     .catch(err => {
       document.getElementById("error").innerText = err.message;
     });
