@@ -26,7 +26,7 @@ window.logout = function () {
 
 // 🔐 Page Protection
 onAuthStateChanged(auth, user => {
-  if (!user && location.pathname.includes("dashboard")) {
-    window.location.href = "index.html";
+  if (!user && location.pathname.includes("addashboard")) {
+    window.location.href = "adindex.html";
   }
 });
