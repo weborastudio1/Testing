@@ -1,0 +1,40 @@
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f7f7f7;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  width: 300px;
+  border-radius: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+}
+
+button {
+  padding: 10px;
+  width: 100%;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#productList div {
+  background: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
