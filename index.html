@@ -254,29 +254,19 @@ Perfect for newborns, toddlers, and everyday comfort.
 </div>
 
 
-
+<!-- Main Site JS -->
 <script src="script.js"></script>
 
-<script src="data/productdata.js"></script>
+<!-- Home Featured Product Loader -->
+<script type="module" src="products-loader.js"></script>
 
-<script>
-  const homeProduct = PRODUCTS["silk-rose-scrunchie"];
-
-  const card = document.getElementById("home-silk-rose-card");
-
-  card.querySelector(".hp-name").innerText = homeProduct.name;
-  card.querySelector(".hp-brand").innerText = homeProduct.brand;
-  card.querySelector(".hp-price").innerText = homeProduct.price;
-  card.querySelector(".hp-original").innerText = "₹" + homeProduct.originalPrice;
-
-  card.querySelector(".hp-link").href =
-    "products/silk-rose-srcunchie.html";
-</script>
-
+<!-- Celebration Effect (UNCHANGED) -->
 <script>
 function createParticles(){
     const colors = ["#ff4da6", "#ff85c1", "#ffd1e8", "#ffffff", "#ff66b3"];
     const container = document.getElementById("celebration");
+
+    if(!container) return;
 
     for(let i=0; i<40; i++){
         const particle = document.createElement("div");
@@ -290,21 +280,19 @@ function createParticles(){
 
         container.appendChild(particle);
 
-        // remove after animation
-        setTimeout(() => {
-            particle.remove();
-        }, 2500);
+        setTimeout(() => particle.remove(), 2500);
     }
 }
 
 window.addEventListener("load", () => {
     createParticles();
-
     setTimeout(() => {
-        document.getElementById("celebration").remove();
+        const c = document.getElementById("celebration");
+        if(c) c.remove();
     }, 1000);
 });
 </script>
+
 
 </body>
 </html>
