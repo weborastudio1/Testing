@@ -248,40 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ========================================
-    // 7. LAZY LOAD IMAGES (placeholder effect)
-    // ========================================
-    // This adds a subtle fade-in effect to product cards
-    const cards = document.querySelectorAll('.product-card');
-    
-    if ('IntersectionObserver' in window) {
-        const cardObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '50px'
-        });
-
-        cards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            cardObserver.observe(card);
-        });
-    } else {
-        // Fallback for older browsers
-        cards.forEach(card => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        });
-    }
-
-    // ========================================
+    //  ========================================
     // 8. WHATSAPP BUTTON TRACKING (Optional)
     // ========================================
     document.querySelectorAll('.btn-whatsapp, a[href*="wa.me"]').forEach(link => {
