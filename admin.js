@@ -1,5 +1,19 @@
 // admin.js
+import { db } from "./firebase.js";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  doc,
+  deleteDoc,
+  updateDoc
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
+const colRef = collection(db, "products");
+
+let editId = null;
+
+// DOM
 const name = document.getElementById("name");
 const price = document.getElementById("price");
 const discountPrice = document.getElementById("discountPrice");
@@ -11,85 +25,84 @@ const stock = document.getElementById("stock");
 const description = document.getElementById("description");
 const delivery = document.getElementById("delivery");
 
-let editId = null;
-
-function renderProducts() {
+// ================= LOAD =================
+async function renderProducts() {
   const list = document.getElementById("productList");
   list.innerHTML = "";
 
-  PRODUCTS.forEach(p => {
+  const snapshot = await getDocs(colRef);
+
+  snapshot.forEach(docu => {
+    const p = docu.data();
+
     list.innerHTML += `
       <div class="product">
-        <strong>${p.name}</strong> (ID: ${p.id})<br>
-        ₹${p.discountPrice} <del>₹${p.price}</del> • ${p.discountPercent}% OFF<br>
+        <b>${p.name}</b><br>
+        ₹${p.discountPrice} <del>₹${p.price}</del><br>
         Stock: ${p.stock}<br><br>
 
-        <button onclick="editProduct(${p.id})">Edit</button>
-        <button onclick="deleteProduct(${p.id})">Delete</button>
+        <button onclick="editProduct('${docu.id}')">Edit</button>
+        <button onclick="deleteProduct('${docu.id}')">Delete</button>
       </div>
     `;
   });
 }
 
-function saveProduct() {
-  if (!name.value || !price.value) {
-    alert("Name & Price required");
-    return;
-  }
-
+// ================= SAVE =================
+window.saveProduct = async function () {
   const data = {
-    id: editId ?? Date.now(),
     name: name.value,
-    price: Number(price.value),
-    discountPrice: Number(discountPrice.value),
-    discountPercent: Number(discountPercent.value),
+    price: +price.value,
+    discountPrice: +discountPrice.value,
+    discountPercent: +discountPercent.value,
     tagline: tagline.value,
     colours: colours.value,
     material: material.value,
-    stock: Number(stock.value),
+    stock: +stock.value,
     description: description.value,
     delivery: delivery.value
   };
 
   if (editId) {
-    const index = PRODUCTS.findIndex(p => p.id === editId);
-    PRODUCTS[index] = data;
+    await updateDoc(doc(db, "products", editId), data);
+    editId = null;
   } else {
-    PRODUCTS.push(data);
+    await addDoc(colRef, data);
   }
-
-  localStorage.setItem("PRODUCTS", JSON.stringify(PRODUCTS));
 
   clearForm();
   renderProducts();
-}
+};
 
-function editProduct(id) {
-  const p = PRODUCTS.find(x => x.id === id);
+// ================= EDIT =================
+window.editProduct = async function (id) {
   editId = id;
 
-  name.value = p.name;
-  price.value = p.price;
-  discountPrice.value = p.discountPrice;
-  discountPercent.value = p.discountPercent;
-  tagline.value = p.tagline;
-  colours.value = p.colours;
-  material.value = p.material;
-  stock.value = p.stock;
-  description.value = p.description;
-  delivery.value = p.delivery;
-}
+  const snapshot = await getDocs(colRef);
+  snapshot.forEach(d => {
+    if (d.id === id) {
+      const p = d.data();
+      name.value = p.name;
+      price.value = p.price;
+      discountPrice.value = p.discountPrice;
+      discountPercent.value = p.discountPercent;
+      tagline.value = p.tagline;
+      colours.value = p.colours;
+      material.value = p.material;
+      stock.value = p.stock;
+      description.value = p.description;
+      delivery.value = p.delivery;
+    }
+  });
+};
 
-function deleteProduct(id) {
-  if (!confirm("Delete this product?")) return;
-
-  PRODUCTS = PRODUCTS.filter(p => p.id !== id);
-  localStorage.setItem("PRODUCTS", JSON.stringify(PRODUCTS));
+// ================= DELETE =================
+window.deleteProduct = async function (id) {
+  await deleteDoc(doc(db, "products", id));
   renderProducts();
-}
+};
 
 function clearForm() {
-  editId = null;
   document.querySelectorAll("input, textarea").forEach(e => e.value = "");
 }
 
