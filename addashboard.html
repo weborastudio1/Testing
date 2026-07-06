@@ -1,37 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Admin Dashboard</title>
   <link rel="stylesheet" href="admin.css">
 </head>
 <body>
 
-<h1>Product Admin Panel</h1>
+<h2>🛠 Admin – Product Manager</h2>
 
-<div class="form-box">
-  <h2>Add / Edit Product</h2>
-
+<div class="form">
   <input id="name" placeholder="Product Name">
-  <input id="price" placeholder="Original Price">
-  <input id="discountPrice" placeholder="Discount Price">
-  <input id="discountPercent" placeholder="Discount %">
+  <input id="price" type="number" placeholder="Original Price">
+  <input id="discountPrice" type="number" placeholder="Discount Price">
+  <input id="discountPercent" type="number" placeholder="Discount %">
   <input id="tagline" placeholder="Tagline">
   <input id="colours" placeholder="Colours Available">
   <input id="material" placeholder="Material">
-  <input id="stock" placeholder="Stock">
+  <input id="stock" type="number" placeholder="Stock">
   <textarea id="description" placeholder="Description"></textarea>
   <textarea id="delivery" placeholder="Delivery Details"></textarea>
 
   <button onclick="saveProduct()">Save Product</button>
 </div>
 
-<div class="list-box">
-  <h2>All Products</h2>
-  <div id="productList"></div>
-</div>
+<h3>All Products</h3>
+<div id="productList"></div>
 
-<script src="products/products-data.js"></script>
+<script src="products-data.js"></script>
 <script src="admin.js"></script>
-
 </body>
 </html>
