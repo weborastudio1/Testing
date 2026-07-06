@@ -135,7 +135,14 @@ document.getElementById("pDescription").innerText = p.description;
 document.getElementById("pMaterial").innerText = p.material;
 document.getElementById("pColours").innerText = p.colours;
 document.getElementById("pDelivery").innerText = p.delivery;
-document.getElementById("pStock").innerText = p.stock > 0 ? "In Stock" : "Out of Stock";
+
+if (p.stock > 0) {
+  document.getElementById("pStock").innerText = "In Stock";
+  document.getElementById("pStockCount").innerText = `Only ${p.stock} left in stock`;
+} else {
+  document.getElementById("pStock").innerText = "Out of Stock";
+  document.getElementById("pStockCount").innerText = "Currently unavailable";
+}
 
 window.orderInstagram = () => {
   const msg = `Hi 👋 I want to order:\n${p.name}\nPrice: ₹${p.discountPrice}`;
