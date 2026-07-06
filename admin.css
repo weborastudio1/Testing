@@ -1,105 +1,49 @@
-* {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
 body {
-  display: flex;
+  font-family: Arial, sans-serif;
   background: #f6f6f6;
-}
-
-/* Sidebar */
-.sidebar {
-  width: 220px;
-  height: 100vh;
-  background: #ff69b4;
-  color: white;
   padding: 20px;
 }
 
-.sidebar h2 {
+h1 {
+  text-align: center;
+}
+
+.form-box, .list-box {
+  background: #fff;
+  padding: 20px;
   margin-bottom: 20px;
+  border-radius: 10px;
 }
 
-.sidebar ul {
-  list-style: none;
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
 }
 
-.sidebar ul li {
-  padding: 12px;
+button {
+  padding: 10px;
+  background: #ff4f8b;
+  border: none;
+  color: white;
   cursor: pointer;
   border-radius: 6px;
 }
 
-.sidebar ul li:hover {
-  background: rgba(255,255,255,0.2);
+button:hover {
+  opacity: 0.9;
 }
 
-/* Main */
-.main {
-  flex: 1;
-  padding: 20px;
+.product {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
 }
 
-/* Sections */
-.section {
-  display: none;
-}
-
-.section.active {
-  display: block;
-}
-
-/* Cards */
-.cards {
-  display: flex;
-  gap: 20px;
-}
-
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  min-width: 200px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+.product b {
   font-size: 18px;
 }
 
-/* Form */
-.form {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 400px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.form input,
-.form textarea {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-}
-
-.form button {
-  padding: 10px;
-  width: 100%;
-  background: #ff69b4;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-/* Product List */
-#productList {
-  margin-top: 20px;
-}
-
-.product-item {
-  background: white;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 6px;
+.action-btn {
+  margin-right: 10px;
+  background: #333;
 }
