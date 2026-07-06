@@ -1,50 +1,13 @@
-/* ================================
-   PRODUCTS LOADER (HOME PAGE)
-   Static version → Firebase ready
-================================ */
+import { db } from "./firebase.js";
+import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-// 🔹 Central product source (abhi static)
-const PRODUCTS = {
-  "silk-rose-scrunchie": {
-    id: "silk-rose-scrunchie",
-    name: "Silk Rose Scrunchie",
-    brand: "Dreamy Scrunch",
-    price: 199,
-    originalPrice: 299,
-    rating: "4.9 / 5",
-    link: "products/silk-rose-srcunchie.html"
-  }
-};
+const snap = await getDocs(collection(db, "products"));
+const first = snap.docs[0];
 
-/* ================================
-   LOAD HOME FEATURED PRODUCT
-================================ */
-
-function loadHomeFeaturedProduct(productId, cardId) {
-  const product = PRODUCTS[productId];
-  const card = document.getElementById(cardId);
-
-  if (!product || !card) {
-    console.warn("Product or card not found:", productId);
-    return;
-  }
-
-  card.querySelector(".hp-name").innerText = product.name;
-  card.querySelector(".hp-brand").innerText = product.brand;
-  card.querySelector(".hp-price").innerText = product.price;
-  card.querySelector(".hp-original").innerText =
-    "₹" + product.originalPrice;
-
-  card.querySelector(".hp-link").href = product.link;
+if (first) {
+  const p = first.data();
+  document.querySelector(".hp-name").innerText = p.name;
+  document.querySelector(".hp-price").innerText = "₹" + p.discountPrice;
+  document.querySelector(".hp-link").href =
+    "products/product.html?id=" + first.id;
 }
-
-/* ================================
-   INIT
-================================ */
-
-document.addEventListener("DOMContentLoaded", () => {
-  loadHomeFeaturedProduct(
-    "silk-rose-scrunchie",
-    "home-silk-rose-card"
-  );
-});
