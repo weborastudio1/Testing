@@ -1,3 +1,15 @@
+
+const name = document.getElementById("name");
+const price = document.getElementById("price");
+const discountPrice = document.getElementById("discountPrice");
+const discountPercent = document.getElementById("discountPercent");
+const tagline = document.getElementById("tagline");
+const colours = document.getElementById("colours");
+const material = document.getElementById("material");
+const stock = document.getElementById("stock");
+const description = document.getElementById("description");
+const delivery = document.getElementById("delivery");
+
 // admin.js
 
 let editId = null;
