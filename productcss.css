@@ -138,3 +138,15 @@ h1, h2 {
     grid-template-columns: 1fr;
   }
 }
+
+.stock {
+  font-weight: 600;
+  color: #1a9b4a;
+  margin-bottom: 4px;
+}
+
+.stock-count {
+  font-size: 0.9rem;
+  color: #ff5ca8;
+  margin-bottom: 18px;
+}
