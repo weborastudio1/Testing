@@ -330,6 +330,41 @@ window.addEventListener("load", () => {
 });
 </script>
 
+<script type="module">
+import { db } from "./firebase.js";
+import {
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const cards = document.querySelectorAll(".product-card");
+
+cards.forEach(async (card) => {
+  const productId = card.dataset.id;
+  if (!productId) return;
+
+  const ref = doc(db, "products", productId);
+  const snap = await getDoc(ref);
+
+  if (!snap.exists()) {
+    card.style.display = "none";
+    return;
+  }
+
+  const p = snap.data();
+
+  card.querySelector(".hp-name").innerText = p.name;
+  card.querySelector(".hp-tagline").innerText = p.tagline;
+  card.querySelector(".hp-price").innerText = p.discountPrice;
+  card.querySelector(".hp-original").innerText = "₹" + p.price;
+
+  card.querySelector(".hp-img").src = p.images?.[0] || "images/placeholder.jpg";
+
+  card.querySelector(".hp-link").href =
+    `product.html?id=${productId}`;
+});
+</script>
+
 
 </body>
 </html>
