@@ -1,34 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="admin.css">
+  <title>Admin</title>
 </head>
 <body>
 
-<h2>🛠 Admin – Product Manager</h2>
+<h2>Admin – Product Manager</h2>
 
-<div class="form">
-  <input id="name" placeholder="Product Name">
-  <input id="price" type="number" placeholder="Original Price">
-  <input id="discountPrice" type="number" placeholder="Discount Price">
-  <input id="discountPercent" type="number" placeholder="Discount %">
-  <input id="tagline" placeholder="Tagline">
-  <input id="colours" placeholder="Colours Available">
-  <input id="material" placeholder="Material">
-  <input id="stock" type="number" placeholder="Stock">
-  <textarea id="description" placeholder="Description"></textarea>
-  <textarea id="delivery" placeholder="Delivery Details"></textarea>
+<input id="name" placeholder="Name">
+<input id="price" type="number" placeholder="Price">
+<input id="discountPrice" type="number" placeholder="Discount Price">
+<input id="discountPercent" type="number" placeholder="Discount %">
+<input id="tagline" placeholder="Tagline">
+<input id="colours" placeholder="Colours">
+<input id="material" placeholder="Material">
+<input id="stock" type="number" placeholder="Stock">
+<textarea id="description"></textarea>
+<textarea id="delivery"></textarea>
 
-  <button onclick="saveProduct()">Save Product</button>
-</div>
+<button onclick="saveProduct()">Save</button>
 
-<h3>All Products</h3>
+<h3>Products</h3>
 <div id="productList"></div>
 
-<script src="products/products-data.js"></script>
 <script type="module" src="firebase.js"></script>
 <script type="module" src="admin.js"></script>
+
 </body>
 </html>
