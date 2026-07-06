@@ -5,183 +5,139 @@
   <title>Product | Dreamy Scrunch</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Global + Product CSS -->
+  <!-- Premium Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../productcss.css">
 </head>
 
 <body>
 
-<!-- ========== HEADER ========== -->
-<header id="header">
-    <div class="container nav-wrapper">
-        <a href="index.html" class="logo">Dreamy <span>Scrunch</span></a>
-
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="scrunchies.html">Scrunchies</a></li>
-            <li><a href="index.html">Dresses 🔒</a></li>
-            <li><a href="our-story.html">Our Story</a></li>
-            <li><a href="contact.html">Get in Touch</a></li>
-        </ul>
-
-        <div class="nav-actions">
-            <a href="https://instagram.com/dreamyscrunch" target="_blank" class="btn-instagram">
-                Order Now
-            </a>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </div>
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-flex">
+    <a href="../index.html" class="logo">Dreamy<span>Scrunch</span></a>
+  </div>
 </header>
 
-
-<!-- ================= PRODUCT ================= -->
+<!-- PRODUCT MAIN -->
 <section class="product-page">
   <div class="container product-layout">
 
-    <!-- Images -->
+    <!-- IMAGE -->
     <div class="product-images">
-      <img
-        id="mainImg"
-        src="../images/placeholder.jpg"
-        alt="Product Image"
-      >
+      <img id="mainImg" src="../images/placeholder.jpg" alt="Product">
     </div>
 
-    <!-- Info -->
+    <!-- INFO -->
     <div class="product-info">
 
       <span class="brand">Dreamy Scrunch</span>
-
-      <h1 id="pName" class="product-title"></h1>
+      <h1 id="pName"></h1>
       <p id="pTagline" class="tagline"></p>
 
-      <!-- Price -->
       <div class="price-box">
         <span class="price" id="pDiscountPrice"></span>
-        <span class="original-price" id="pPrice"></span>
+        <span class="original" id="pPrice"></span>
         <span class="discount" id="pDiscountPercent"></span>
       </div>
 
-      <!-- Stock -->
       <div class="stock" id="pStock"></div>
 
       <!-- CTA -->
       <button class="order-btn" onclick="orderInstagram()">
-        Order on Instagram
+        Buy via Instagram
       </button>
 
-      <!-- Description -->
-      <div class="description">
-        <h3>Description</h3>
-        <p id="pDescription"></p>
+      <!-- DELIVERY POLICY -->
+      <div class="policy-box">
+        <h3>🚚 Delivery</h3>
+        <p id="pDelivery"></p>
       </div>
 
-      <!-- Details -->
-      <ul class="details">
-        <li><strong>Colours:</strong> <span id="pColours"></span></li>
-        <li><strong>Material:</strong> <span id="pMaterial"></span></li>
-        <li><strong>Delivery:</strong> <span id="pDelivery"></span></li>
-      </ul>
+      <!-- RETURN POLICY -->
+      <div class="policy-box">
+        <h3>↩️ Return Policy</h3>
+        <p>Easy replacement if damaged or defective within 48 hours.</p>
+      </div>
 
     </div>
   </div>
 </section>
 
-<!-- ========== FOOTER ========== -->
-<footer>  
-    <div class="container">  
-        <div class="footer-grid">  
+<!-- DESCRIPTION -->
+<section class="product-section">
+  <div class="container">
+    <h2>Description</h2>
+    <p id="pDescription"></p>
 
-            <div class="footer-brand">  
-                <a href="index.html" class="logo">Dreamy <span>Scrunch</span></a>  
-                <p>Handmade scrunchies and baby dresses with love.</p>  
+    <ul class="meta">
+      <li><strong>Material:</strong> <span id="pMaterial"></span></li>
+      <li><strong>Colours:</strong> <span id="pColours"></span></li>
+    </ul>
+  </div>
+</section>
 
-                <div class="footer-social">  
-                    <a href="https://instagram.com/dreamyscrunch" target="_blank">🅾</a>  
-                    <a href="https://facebook.com/share/1PjfERjggc/silent" target="_blank">𝐟</a>  
-                    <a href="mailto:dreamyscrunch@gmail.com">✉️</a>  
-                </div>  
-            </div>  
+<!-- OUR STORY -->
+<section class="story-section">
+  <div class="container">
+    <h2>Our Story</h2>
+    <p>
+      Dreamy Scrunch was born to bring softness, elegance and comfort into
+      everyday hair care. Every scrunchie is crafted with love, quality
+      fabrics and attention to detail — because your hair deserves the best.
+    </p>
+  </div>
+</section>
 
-            <div class="footer-col">  
-                <h5>quick link</h5>  
-                <ul>  
-                    <li><a href="scrunchies.html">Products👜</a></li>  
-                    <li><a href="our-story.html">Supports ✅</a></li>  
-                </ul>  
-            </div>  
+<!-- SIMILAR PRODUCTS (placeholder for future) -->
+<section class="similar-section">
+  <div class="container">
+    <h2>You may also like</h2>
 
-            <div class="footer-col">  
-                <h5>Connect</h5>  
-                <ul>  
-                    <li><a href="https://instagram.com/dreamyscrunch" target="_blank">@dreamyscrunch</a></li>  
-                    <li><a href="https://facebook.com/share/1PjfERjggc/silent" target="_blank">Facebook Page</a></li>  
-                </ul>  
-            </div>  
+    <div class="similar-grid">
+      <div class="similar-card">Coming Soon</div>
+      <div class="similar-card">Coming Soon</div>
+      <div class="similar-card">Coming Soon</div>
+    </div>
+  </div>
+</section>
 
-        </div>  
-
-        <div class="footer-bottom">  
-            <span>&copy; 2026 Dreamy Scrunch</span>  
-            <span>Made with ❤ in India</span>  
-        </div>  
-    </div>  
+<!-- FOOTER -->
+<footer class="site-footer">
+  © 2026 Dreamy Scrunch. All rights reserved.
 </footer>
 
-<!-- ================= FIREBASE LOADER ================= -->
+<!-- FIREBASE LOAD -->
 <script type="module">
 import { db } from "../firebase.js";
-import {
-  doc,
-  getDoc
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
-
-if (!id) {
-  document.body.innerHTML = "<h2 style='text-align:center'>Invalid Product</h2>";
-  throw new Error("No product id");
-}
-
+const id = new URLSearchParams(window.location.search).get("id");
 const ref = doc(db, "products", id);
 const snap = await getDoc(ref);
 
 if (!snap.exists()) {
   document.body.innerHTML = "<h2 style='text-align:center'>Product not found</h2>";
-  throw new Error("Product not found");
+  throw new Error("Not found");
 }
 
 const p = snap.data();
 
-/* Inject Data */
 document.getElementById("pName").innerText = p.name;
 document.getElementById("pTagline").innerText = p.tagline;
 document.getElementById("pDiscountPrice").innerText = "₹" + p.discountPrice;
 document.getElementById("pPrice").innerText = "₹" + p.price;
-document.getElementById("pDiscountPercent").innerText =
-  p.discountPercent + "% OFF";
-
+document.getElementById("pDiscountPercent").innerText = p.discountPercent + "% OFF";
 document.getElementById("pDescription").innerText = p.description;
-document.getElementById("pColours").innerText = p.colours;
 document.getElementById("pMaterial").innerText = p.material;
+document.getElementById("pColours").innerText = p.colours;
 document.getElementById("pDelivery").innerText = p.delivery;
+document.getElementById("pStock").innerText = p.stock > 0 ? "In Stock" : "Out of Stock";
 
-document.getElementById("pStock").innerText =
-  p.stock > 0 ? "In Stock" : "Out of Stock";
-
-window.orderInstagram = function () {
-  const msg =
-`Hi 👋 I want to order:
-
-🛍 ${p.name}
-💰 ₹${p.discountPrice}`;
-
+window.orderInstagram = () => {
+  const msg = `Hi 👋 I want to order:\n${p.name}\nPrice: ₹${p.discountPrice}`;
   navigator.clipboard.writeText(msg);
   window.open("https://instagram.com/dreamyscrunch", "_blank");
 };
