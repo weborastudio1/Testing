@@ -1,49 +1,46 @@
-import { db } from "./firebase.js";
-import {
-  collection,
-  addDoc,
-  getDocs,
-  deleteDoc,
-  doc
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+let products = [];
 
-const productsRef = collection(db, "products");
-
-window.addProduct = async function () {
-  const title = document.getElementById("title").value;
-  const price = document.getElementById("price").value;
-  const image = document.getElementById("image").value;
-
-  await addDoc(productsRef, {
-    title,
-    price,
-    image
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(sec => {
+    sec.classList.remove('active');
   });
+  document.getElementById(id).classList.add('active');
+}
 
-  alert("Product Added");
-  loadProducts();
-};
+function addProduct() {
+  const name = document.getElementById('pName').value;
+  const price = document.getElementById('pPrice').value;
+  const image = document.getElementById('pImage').value;
+  const desc = document.getElementById('pDesc').value;
 
-async function loadProducts() {
-  const list = document.getElementById("productList");
+  if (!name || !price) {
+    alert("Name & Price required");
+    return;
+  }
+
+  const product = { name, price, image, desc };
+  products.push(product);
+
+  document.getElementById('totalProducts').innerText = products.length;
+  renderProducts();
+
+  document.getElementById('pName').value = "";
+  document.getElementById('pPrice').value = "";
+  document.getElementById('pImage').value = "";
+  document.getElementById('pDesc').value = "";
+}
+
+function renderProducts() {
+  const list = document.getElementById('productList');
   list.innerHTML = "";
 
-  const snap = await getDocs(productsRef);
-  snap.forEach(docu => {
-    const d = docu.data();
+  products.forEach((p, i) => {
     list.innerHTML += `
-      <div>
-        <b>${d.title}</b><br>
-        ₹${d.price}<br>
-        <button onclick="deleteProduct('${docu.id}')">Delete</button>
+      <div class="product-item">
+        <b>${p.name}</b> - ₹${p.price}
+        <br>
+        <small>${p.desc}</small>
       </div>
     `;
   });
 }
-
-window.deleteProduct = async function (id) {
-  await deleteDoc(doc(db, "products", id));
-  loadProducts();
-};
-
-loadProducts();
