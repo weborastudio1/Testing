@@ -1,18 +1,19 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f6f6f6;
+  font-family: system-ui, sans-serif;
+  background: #f7f7f7;
   padding: 20px;
 }
 
-h1 {
+h2 {
   text-align: center;
 }
 
-.form-box, .list-box {
-  background: #fff;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
+.form {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: auto;
 }
 
 input, textarea {
@@ -22,28 +23,26 @@ input, textarea {
 }
 
 button {
-  padding: 10px;
-  background: #ff4f8b;
-  border: none;
+  background: black;
   color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
   cursor: pointer;
-  border-radius: 6px;
 }
 
-button:hover {
-  opacity: 0.9;
+#productList {
+  max-width: 600px;
+  margin: 20px auto;
 }
 
 .product {
-  border-bottom: 1px solid #ddd;
-  padding: 10px 0;
+  background: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
 }
 
-.product b {
-  font-size: 18px;
-}
-
-.action-btn {
-  margin-right: 10px;
-  background: #333;
+.product button {
+  margin-right: 8px;
 }
