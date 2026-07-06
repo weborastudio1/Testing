@@ -1,3 +1,8 @@
+
+
+
+
+
 /* ============================================
    DREAMY SCRUNCH — MAIN STYLESHEET
    Shared across all pages
@@ -1183,4 +1188,25 @@ footer {
         transform: translateY(-200px) scale(0);
         opacity: 0;
     }
+}
+
+
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  background: linear-gradient(145deg, var(--blush), var(--lavender));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
