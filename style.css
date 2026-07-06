@@ -433,13 +433,10 @@ header.scrolled {
 }
 
 .product-card {
-    background: var(--cream);
-    border-radius: var(--radius);
-    padding: 28px 24px 32px;
-    text-align: center;
-    transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    box-shadow: var(--shadow);
+  background: #fff;
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 .product-card:hover {
