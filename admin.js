@@ -1,3 +1,4 @@
+// admin.js
 
 const name = document.getElementById("name");
 const price = document.getElementById("price");
@@ -10,8 +11,6 @@ const stock = document.getElementById("stock");
 const description = document.getElementById("description");
 const delivery = document.getElementById("delivery");
 
-// admin.js
-
 let editId = null;
 
 function renderProducts() {
@@ -21,28 +20,33 @@ function renderProducts() {
   PRODUCTS.forEach(p => {
     list.innerHTML += `
       <div class="product">
-        <b>${p.name}</b> (ID: ${p.id})<br>
-        ₹${p.discountPrice} <del>₹${p.price}</del> (${p.discountPercent}% OFF)<br>
+        <strong>${p.name}</strong> (ID: ${p.id})<br>
+        ₹${p.discountPrice} <del>₹${p.price}</del> • ${p.discountPercent}% OFF<br>
         Stock: ${p.stock}<br><br>
 
-        <button class="action-btn" onclick="editProduct(${p.id})">Edit</button>
-        <button class="action-btn" onclick="deleteProduct(${p.id})">Delete</button>
+        <button onclick="editProduct(${p.id})">Edit</button>
+        <button onclick="deleteProduct(${p.id})">Delete</button>
       </div>
     `;
   });
 }
 
 function saveProduct() {
+  if (!name.value || !price.value) {
+    alert("Name & Price required");
+    return;
+  }
+
   const data = {
     id: editId ?? Date.now(),
     name: name.value,
-    price: +price.value,
-    discountPrice: +discountPrice.value,
-    discountPercent: +discountPercent.value,
+    price: Number(price.value),
+    discountPrice: Number(discountPrice.value),
+    discountPercent: Number(discountPercent.value),
     tagline: tagline.value,
     colours: colours.value,
     material: material.value,
-    stock: +stock.value,
+    stock: Number(stock.value),
     description: description.value,
     delivery: delivery.value
   };
@@ -53,6 +57,8 @@ function saveProduct() {
   } else {
     PRODUCTS.push(data);
   }
+
+  localStorage.setItem("PRODUCTS", JSON.stringify(PRODUCTS));
 
   clearForm();
   renderProducts();
@@ -75,7 +81,10 @@ function editProduct(id) {
 }
 
 function deleteProduct(id) {
+  if (!confirm("Delete this product?")) return;
+
   PRODUCTS = PRODUCTS.filter(p => p.id !== id);
+  localStorage.setItem("PRODUCTS", JSON.stringify(PRODUCTS));
   renderProducts();
 }
 
