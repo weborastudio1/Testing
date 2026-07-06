@@ -1,16 +1,29 @@
 <h1 id="pName"></h1>
-<img id="pImg">
-<p id="pDesc"></p>
+<p id="pTag"></p>
 <h2 id="pPrice"></h2>
+<p id="pDesc"></p>
 
-<script src="products/products-data.js"></script>
+<script type="module">
+import { db } from "../firebase.js";
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-<script>
-  const id = new URLSearchParams(window.location.search).get("id");
-  const product = PRODUCTS.find(p => p.id == id);
+const id = new URLSearchParams(window.location.search).get("id");
 
-  document.getElementById("pName").innerText = product.name;
-  document.getElementById("pImg").src = product.image;
-  document.getElementById("pDesc").innerText = product.desc;
-  document.getElementById("pPrice").innerText = "₹" + product.price;
+if (!id) {
+  document.body.innerHTML = "Invalid Product";
+}
+
+const ref = doc(db, "products", id);
+const snap = await getDoc(ref);
+
+if (!snap.exists()) {
+  document.body.innerHTML = "Product not found";
+}
+
+const p = snap.data();
+
+document.getElementById("pName").innerText = p.name;
+document.getElementById("pTag").innerText = p.tagline;
+document.getElementById("pPrice").innerText = "₹" + p.discountPrice;
+document.getElementById("pDesc").innerText = p.description;
 </script>
