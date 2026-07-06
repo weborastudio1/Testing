@@ -28,3 +28,8 @@ let PRODUCTS = [
     delivery: "Delivered in 4–6 days"
   }
 ];
+
+// 🔐 Load saved data if exists
+if (localStorage.getItem("PRODUCTS")) {
+  PRODUCTS = JSON.parse(localStorage.getItem("PRODUCTS"));
+}
