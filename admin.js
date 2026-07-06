@@ -1,4 +1,3 @@
-// admin.js
 import { db } from "./firebase.js";
 import {
   collection,
@@ -10,100 +9,80 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const colRef = collection(db, "products");
-
 let editId = null;
 
-// DOM
-const name = document.getElementById("name");
-const price = document.getElementById("price");
-const discountPrice = document.getElementById("discountPrice");
-const discountPercent = document.getElementById("discountPercent");
-const tagline = document.getElementById("tagline");
-const colours = document.getElementById("colours");
-const material = document.getElementById("material");
-const stock = document.getElementById("stock");
-const description = document.getElementById("description");
-const delivery = document.getElementById("delivery");
+// Inputs
+const fields = [
+  "name","price","discountPrice","discountPercent",
+  "tagline","colours","material","stock",
+  "description","delivery"
+];
 
-// ================= LOAD =================
+const els = {};
+fields.forEach(f => els[f] = document.getElementById(f));
+
+// LOAD
 async function renderProducts() {
   const list = document.getElementById("productList");
   list.innerHTML = "";
 
   const snapshot = await getDocs(colRef);
 
-  snapshot.forEach(docu => {
-    const p = docu.data();
-
+  snapshot.forEach(d => {
+    const p = d.data();
     list.innerHTML += `
       <div class="product">
         <b>${p.name}</b><br>
         ₹${p.discountPrice} <del>₹${p.price}</del><br>
-        Stock: ${p.stock}<br><br>
+        ID: ${d.id}<br><br>
 
-        <button onclick="editProduct('${docu.id}')">Edit</button>
-        <button onclick="deleteProduct('${docu.id}')">Delete</button>
+        <button onclick="editProduct('${d.id}')">Edit</button>
+        <button onclick="deleteProduct('${d.id}')">Delete</button>
       </div>
     `;
   });
 }
 
-// ================= SAVE =================
+// SAVE
 window.saveProduct = async function () {
-  const data = {
-    name: name.value,
-    price: +price.value,
-    discountPrice: +discountPrice.value,
-    discountPercent: +discountPercent.value,
-    tagline: tagline.value,
-    colours: colours.value,
-    material: material.value,
-    stock: +stock.value,
-    description: description.value,
-    delivery: delivery.value
-  };
+  const data = {};
+  fields.forEach(f => data[f] = els[f].value);
+  data.price = +data.price;
+  data.discountPrice = +data.discountPrice;
+  data.discountPercent = +data.discountPercent;
+  data.stock = +data.stock;
 
   if (editId) {
     await updateDoc(doc(db, "products", editId), data);
     editId = null;
   } else {
-    await addDoc(colRef, data);
+    await addDoc(colRef, data); // 🔥 auto unique ID
   }
 
   clearForm();
   renderProducts();
 };
 
-// ================= EDIT =================
+// EDIT
 window.editProduct = async function (id) {
   editId = id;
-
   const snapshot = await getDocs(colRef);
   snapshot.forEach(d => {
     if (d.id === id) {
       const p = d.data();
-      name.value = p.name;
-      price.value = p.price;
-      discountPrice.value = p.discountPrice;
-      discountPercent.value = p.discountPercent;
-      tagline.value = p.tagline;
-      colours.value = p.colours;
-      material.value = p.material;
-      stock.value = p.stock;
-      description.value = p.description;
-      delivery.value = p.delivery;
+      fields.forEach(f => els[f].value = p[f]);
     }
   });
 };
 
-// ================= DELETE =================
+// DELETE
 window.deleteProduct = async function (id) {
   await deleteDoc(doc(db, "products", id));
   renderProducts();
 };
 
 function clearForm() {
-  document.querySelectorAll("input, textarea").forEach(e => e.value = "");
+  fields.forEach(f => els[f].value = "");
 }
 
 window.onload = renderProducts;
