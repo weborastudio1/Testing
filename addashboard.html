@@ -2,119 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dreamy Scrunch – Admin Dashboard</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dreamy Scrunch | Admin Dashboard</title>
   <link rel="stylesheet" href="admin.css">
 </head>
 <body>
 
-<!-- ========== TOP BAR ========== -->
-<header class="admin-header">
-  <h1>Dreamy Scrunch ✨</h1>
-  <span class="admin-tag">Admin Dashboard</span>
-</header>
-
-<!-- ========== MAIN ========== -->
-<main class="admin-container">
-
-  <!-- LEFT PANEL -->
-  <aside class="admin-sidebar">
-    <h3>Manage</h3>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
     <ul>
-      <li class="active">➕ Add Product</li>
-      <li>🛍 All Products</li>
-      <li>📦 Orders (future)</li>
-      <li>⚙ Settings</li>
+      <li onclick="showSection('dashboard')">Dashboard</li>
+      <li onclick="showSection('products')">Products</li>
+      <li onclick="showSection('settings')">Settings</li>
     </ul>
-  </aside>
+  </div>
 
-  <!-- RIGHT PANEL -->
-  <section class="admin-content">
+  <!-- Main Content -->
+  <div class="main">
 
-    <h2>Add / Edit Product</h2>
-    <p class="sub-text">Fill product details carefully ✍️</p>
+    <!-- Dashboard -->
+    <section id="dashboard" class="section active">
+      <h1>Welcome Admin 👋</h1>
+      <div class="cards">
+        <div class="card">Total Products<br><span id="totalProducts">0</span></div>
+        <div class="card">Website Status<br><span>Live</span></div>
+      </div>
+    </section>
 
-    <form class="product-form">
+    <!-- Products -->
+    <section id="products" class="section">
+      <h1>Add Product</h1>
 
-      <div class="form-group">
-        <label>Product ID (unique)</label>
-        <input type="text" placeholder="silk-rose-scrunchie">
+      <div class="form">
+        <input type="text" id="pName" placeholder="Product Name">
+        <input type="text" id="pPrice" placeholder="Price">
+        <input type="text" id="pImage" placeholder="Image URL">
+        <textarea id="pDesc" placeholder="Description"></textarea>
+        <button onclick="addProduct()">Add Product</button>
       </div>
 
-      <div class="form-group">
-        <label>Product Name</label>
-        <input type="text" placeholder="Silk Rose Scrunchie">
-      </div>
+      <h2>Products List</h2>
+      <div id="productList"></div>
+    </section>
 
-      <div class="form-group">
-        <label>Brand</label>
-        <input type="text" placeholder="Dreamy Scrunch">
-      </div>
+    <!-- Settings -->
+    <section id="settings" class="section">
+      <h1>Settings</h1>
+      <p>Future Firebase / Admin Controls yaha aayenge</p>
+    </section>
 
-      <div class="grid-2">
-        <div class="form-group">
-          <label>Price (₹)</label>
-          <input type="number" placeholder="199">
-        </div>
+  </div>
 
-        <div class="form-group">
-          <label>Original Price (₹)</label>
-          <input type="number" placeholder="299">
-        </div>
-      </div>
-
-      <div class="grid-2">
-        <div class="form-group">
-          <label>Discount</label>
-          <input type="text" placeholder="33% OFF">
-        </div>
-
-        <div class="form-group">
-          <label>Rating</label>
-          <input type="text" placeholder="4.9">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Color</label>
-        <input type="text" placeholder="Rose Pink">
-      </div>
-
-      <div class="form-group">
-        <label>Material</label>
-        <input type="text" placeholder="Premium Silk">
-      </div>
-
-      <div class="form-group">
-        <label>Description</label>
-        <textarea rows="4" placeholder="Product description here..."></textarea>
-      </div>
-
-      <div class="form-group">
-        <label>Category</label>
-        <input type="text" placeholder="silk / cotton / premium">
-      </div>
-
-      <div class="form-group">
-        <label>Tags (comma separated)</label>
-        <input type="text" placeholder="scrunchie, silk, premium">
-      </div>
-
-      <div class="btn-group">
-        <button type="button" class="btn-primary">Save Product</button>
-        <button type="reset" class="btn-secondary">Clear</button>
-      </div>
-
-    </form>
-
-  </section>
-
-</main>
-
-<!-- ========== FOOTER ========== -->
-<footer class="admin-footer">
-  © 2026 Dreamy Scrunch • Admin Panel
-</footer>
-
+  <script src="admin.js"></script>
 </body>
 </html>
