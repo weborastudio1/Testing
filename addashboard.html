@@ -1,58 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Dreamy Scrunch | Admin Dashboard</title>
+  <title>Admin Dashboard</title>
   <link rel="stylesheet" href="admin.css">
 </head>
 <body>
 
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <h2>Admin Panel</h2>
-    <ul>
-      <li onclick="showSection('dashboard')">Dashboard</li>
-      <li onclick="showSection('products')">Products</li>
-      <li onclick="showSection('settings')">Settings</li>
-    </ul>
-  </div>
+<h1>Product Admin Panel</h1>
 
-  <!-- Main Content -->
-  <div class="main">
+<div class="form-box">
+  <h2>Add / Edit Product</h2>
 
-    <!-- Dashboard -->
-    <section id="dashboard" class="section active">
-      <h1>Welcome Admin 👋</h1>
-      <div class="cards">
-        <div class="card">Total Products<br><span id="totalProducts">0</span></div>
-        <div class="card">Website Status<br><span>Live</span></div>
-      </div>
-    </section>
+  <input id="name" placeholder="Product Name">
+  <input id="price" placeholder="Original Price">
+  <input id="discountPrice" placeholder="Discount Price">
+  <input id="discountPercent" placeholder="Discount %">
+  <input id="tagline" placeholder="Tagline">
+  <input id="colours" placeholder="Colours Available">
+  <input id="material" placeholder="Material">
+  <input id="stock" placeholder="Stock">
+  <textarea id="description" placeholder="Description"></textarea>
+  <textarea id="delivery" placeholder="Delivery Details"></textarea>
 
-    <!-- Products -->
-    <section id="products" class="section">
-      <h1>Add Product</h1>
+  <button onclick="saveProduct()">Save Product</button>
+</div>
 
-      <div class="form">
-        <input type="text" id="pName" placeholder="Product Name">
-        <input type="text" id="pPrice" placeholder="Price">
-        <input type="text" id="pImage" placeholder="Image URL">
-        <textarea id="pDesc" placeholder="Description"></textarea>
-        <button onclick="addProduct()">Add Product</button>
-      </div>
+<div class="list-box">
+  <h2>All Products</h2>
+  <div id="productList"></div>
+</div>
 
-      <h2>Products List</h2>
-      <div id="productList"></div>
-    </section>
+<script src="products-data.js"></script>
+<script src="admin.js"></script>
 
-    <!-- Settings -->
-    <section id="settings" class="section">
-      <h1>Settings</h1>
-      <p>Future Firebase / Admin Controls yaha aayenge</p>
-    </section>
-
-  </div>
-
-  <script src="admin.js"></script>
 </body>
 </html>
