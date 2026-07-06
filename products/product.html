@@ -1,0 +1,16 @@
+<h1 id="pName"></h1>
+<img id="pImg">
+<p id="pDesc"></p>
+<h2 id="pPrice"></h2>
+
+<script src="products/products-data.js"></script>
+
+<script>
+  const id = new URLSearchParams(window.location.search).get("id");
+  const product = PRODUCTS.find(p => p.id == id);
+
+  document.getElementById("pName").innerText = product.name;
+  document.getElementById("pImg").src = product.image;
+  document.getElementById("pDesc").innerText = product.desc;
+  document.getElementById("pPrice").innerText = "₹" + product.price;
+</script>
