@@ -278,8 +278,24 @@ const FEATURED_IDS = [
   "example4"
 ];
 
-const cards = document.querySelectorAll(".product-card");
+const cards = document.querySelectorAll(".product-card").forEach((card, index) => {
+  const img = card.querySelector(".hp-image");
 
+  // ❌ agar img hi nahi mila
+  if (!img) return;
+
+  // example product
+  const product = products[index];
+
+  // ❌ agar product ya image nahi
+  if (!product || !product.image || product.image.trim() === "") {
+    console.warn("Image skipped for card", index);
+    return; // 🔥 THIS SAVES IMAGE
+  }
+
+  // ✅ only valid image overwrite
+  img.src = product.image;
+});
 FEATURED_IDS.forEach(async (productId, index) => {
   const card = cards[index];
   if (!card) return;
