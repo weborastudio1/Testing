@@ -256,11 +256,7 @@ import {
   getDoc
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-/*
-  🔑 FEATURED PRODUCT IDS
-  👉 Abhi example ids
-  👉 Baad me admin panel wali real IDs daal dena
-*/
+/* 🔑 FEATURED PRODUCT IDS */
 const FEATURED_IDS = [
   "gv6jhRTj6wc958uiZ9dA",
   "6gpgAL9IBNWKDMakr9Pj",
@@ -268,24 +264,9 @@ const FEATURED_IDS = [
   "example4"
 ];
 
-const cards = document.querySelectorAll(".product-card").forEach((card, index) => {
-  const img = card.querySelector(".hp-image");
+/* ✅ SAFELY SELECT CARDS */
+const cards = document.querySelectorAll(".product-card");
 
-  // ❌ agar img hi nahi mila
-  if (!img) return;
-
-  // example product
-  const product = products[index];
-
-  // ❌ agar product ya image nahi
-  if (!product || !product.image || product.image.trim() === "") {
-    console.warn("Image skipped for card", index);
-    return; // 🔥 THIS SAVES IMAGE
-  }
-
-  // ✅ only valid image overwrite
-  img.src = product.image;
-});
 FEATURED_IDS.forEach(async (productId, index) => {
   const card = cards[index];
   if (!card) return;
@@ -301,20 +282,27 @@ FEATURED_IDS.forEach(async (productId, index) => {
 
     const p = snap.data();
 
-    card.querySelector(".hp-image").src = p.image || "images/placeholder.jpg";
-    card.querySelector(".hp-image").alt = p.name;
+    /* ✅ IMAGE */
+    const img = card.querySelector(".hp-image");
+    img.src = p.image || "images/placeholder.jpg";
+    img.alt = p.name || "Dreamy Scrunch Product";
 
-    card.querySelector(".hp-name").innerText = p.name;
-    card.querySelector(".hp-tagline").innerText = p.tagline || "";
+    /* ✅ TEXT CONTENT */
+    card.querySelector(".hp-name").textContent = p.name || "";
+    card.querySelector(".hp-tagline").textContent = p.tagline || "";
 
-    card.querySelector(".hp-price").innerText = p.discountPrice;
-    card.querySelector(".hp-original").innerText = "₹" + p.price;
+    card.querySelector(".hp-price").textContent =
+      p.discountPrice || p.price || "";
 
+    card.querySelector(".hp-original").textContent =
+      p.discountPrice ? "₹" + p.price : "";
+
+    /* ✅ LINK */
     card.querySelector(".hp-link").href =
       `product.html?id=${productId}`;
 
-  } catch (err) {
-    console.error("Error loading product:", productId, err);
+  } catch (error) {
+    console.error("❌ Product load failed:", productId, error);
     card.style.display = "none";
   }
 });
