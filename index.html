@@ -281,9 +281,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 /*
-  🔑 FEATURED PRODUCT IDS
-  👉 Abhi example ids
-  👉 Baad me admin panel wali real IDs daal dena
+   Home Featured Product IDs
 */
 const FEATURED_IDS = [
   "zru6kftQO6MXqyDd4g9g",
@@ -292,55 +290,59 @@ const FEATURED_IDS = [
   "example4"
 ];
 
-const cards = document.querySelectorAll(".product-card").forEach((card, index) => {
-  const img = card.querySelector(".hp-image");
+const cards = document.querySelectorAll(".product-card");
 
-  // ❌ agar img hi nahi mila
-  if (!img) return;
-
-  // example product
-  const product = products[index];
-
-  // ❌ agar product ya image nahi
-  if (!product || !product.image || product.image.trim() === "") {
-    console.warn("Image skipped for card", index);
-    return; // 🔥 THIS SAVES IMAGE
-  }
-
-  // ✅ only valid image overwrite
-  img.src = product.image;
-});
 FEATURED_IDS.forEach(async (productId, index) => {
-  const card = cards[index];
-  if (!card) return;
 
-  try {
-    const ref = doc(db, "products", productId);
-    const snap = await getDoc(ref);
+    const card = cards[index];
+    if (!card) return;
 
-    if (!snap.exists()) {
-      card.style.display = "none";
-      return;
+    try {
+
+        const snap = await getDoc(doc(db,"products",productId));
+
+        if(!snap.exists()){
+            card.style.display="none";
+            return;
+        }
+
+        const p = snap.data();
+
+        // IMAGE
+        const img = card.querySelector(".hp-image");
+        if(img){
+            img.src = p.image || "images/placeholder.jpg";
+            img.alt = p.name;
+        }
+
+        // NAME
+        const name = card.querySelector(".hp-name");
+        if(name) name.innerText = p.name;
+
+        // TAGLINE
+        const tag = card.querySelector(".hp-tagline");
+        if(tag) tag.innerText = p.tagline || "";
+
+        // PRICE
+        const price = card.querySelector(".hp-price");
+        if(price) price.innerText = p.discountPrice;
+
+        // ORIGINAL PRICE
+        const original = card.querySelector(".hp-original");
+        if(original) original.innerText = "₹" + p.price;
+
+        // LINK
+        const btn = card.querySelector(".hp-link");
+        if(btn){
+            btn.href = `products/product.html?id=${productId}`;
+        }
+
     }
 
-    const p = snap.data();
+    catch(err){
+        console.error(err);
+    }
 
-    card.querySelector(".hp-image").src = p.image || "images/placeholder.jpg";
-    card.querySelector(".hp-image").alt = p.name;
-
-    card.querySelector(".hp-name").innerText = p.name;
-    card.querySelector(".hp-tagline").innerText = p.tagline || "";
-
-    card.querySelector(".hp-price").innerText = p.discountPrice;
-    card.querySelector(".hp-original").innerText = "₹" + p.price;
-
-    card.querySelector(".hp-link").href =
-      `product.html?id=${productId}`;
-
-  } catch (err) {
-    console.error("Error loading product:", productId, err);
-    card.style.display = "none";
-  }
 });
 </script>
 
