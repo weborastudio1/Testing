@@ -185,6 +185,10 @@ if (!snap.exists()) {
 const p = snap.data();
 
 document.getElementById("pName").innerText = p.name;
+
+document.getElementById("mainImg").src = p.image;
+
+
 document.getElementById("pTagline").innerText = p.tagline;
 document.getElementById("pDiscountPrice").innerText = "₹" + p.discountPrice;
 document.getElementById("pPrice").innerText = "₹" + p.price;
