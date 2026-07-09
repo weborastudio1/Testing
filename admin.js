@@ -13,9 +13,17 @@ let editId = null;
 
 // Inputs
 const fields = [
-  "name","price","discountPrice","discountPercent",
-  "tagline","colours","material","stock",
-  "description","delivery"
+  "name",
+  "price",
+  "discountPrice",
+  "discountPercent",
+  "tagline",
+  "colours",
+  "material",
+  "stock",
+  "description",
+  "delivery",
+  "image"
 ];
 
 const els = {};
