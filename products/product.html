@@ -186,7 +186,10 @@ const p = snap.data();
 
 document.getElementById("pName").innerText = p.name;
 
-document.getElementById("mainImg").src = p.image;
+document.getElementById("mainImg").src =
+    p.image || "../images/placeholder.jpg";
+
+document.getElementById("mainImg").alt = p.name;
 
 
 document.getElementById("pTagline").innerText = p.tagline;
